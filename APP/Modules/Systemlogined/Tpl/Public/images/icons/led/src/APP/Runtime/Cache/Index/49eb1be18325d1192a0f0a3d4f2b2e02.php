@@ -1,0 +1,227 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)http://www.xxx.com/Home/Myuser/jihuo2/zt/0/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="robots" content="noindex,nofollow">
+	<meta name="robots" content="noarchive">
+	<!-- 屏蔽-->
+	<title>EBT
+-COIN</title>
+	<meta name="keywords" content=" ">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta content="IE=9; IE=EDGE" http-equiv="X-UA-Compatible">
+	<link rel="stylesheet" href="/Public/ybt/css/sm.css">
+	<script src="/Public/ybt/js/jquery-1.10.2.min.js"></script>
+
+	<link rel="stylesheet" href="/Public/ybt/css/sm-extend.css">
+
+	<link rel="stylesheet" href="/Public/ybt/css/iconfont.css">
+	<!--自定义-->
+	<link rel="stylesheet" href="/Public/ybt/css/main.css">
+	<link rel="stylesheet" href="/Public/ybt/css/order.css">
+</head>
+<body style="">
+
+<!--    <div class="page">-->
+
+<!-- 标题栏 -->
+<header class="bar bar-nav">
+
+	<a style="position: absolute;z-index: 19;width: 94%;text-align: center;display: inline-block;line-height: 50px;font-size: 1.1rem; color:#FFF;">矿机详情</a>    <div class="logo">
+	<a id="cancle" href="<?php echo U('Index/Shop/orderlist');?>"><i class="icon icon-left"></i></a>    </div>
+	<a class="icon pull-right open-panel"></a></header>
+<nav class="foot-bar">
+	<div class="foot-menu"><a href="<?php echo U('Index/Emoney/shouye');?>">
+		<i class="iconfont icon-shouye"></i><span>首页</span></a></div>
+	<div class="foot-menu"><a href="<?php echo U('Index/Shop/orderlist');?>">
+		<i class="iconfont icon-wxbmingxingdianpu"></i><span>我的矿机</span></a></div>
+	<div class="foot-menu"><a href="<?php echo U('Index/Account/myAccount');?>">
+		<i class="iconfont icon-gouwuche"></i><span>我的团队</span></a></div>
+	<div class="foot-menu"><a href="<?php echo U('Index/Emoney/index');?>">
+		<i class="iconfont icon-wxbdingwei"></i><span>交易平台</span></a></div>
+	<div class="foot-menu"><a href="/">
+		<i class="iconfont icon-geren"></i><span>会员中心</span></a></div>
+</nav>
+
+
+<script type="text/javascript">
+    $(function() {
+        $("#cancle").click(function() {
+            $.router.back();
+        });
+    });
+</script>
+
+<div class="content" id="main_content">
+    <style>
+	@media screen and (max-width: 400px)
+*, .hui-list-text, .hui-list-info, .hui-button, #list2 li h1, .hui-header h1, .hui-footer-text, .user-list .hui-media-list h1 {
+    font-size: 4.5vw;
+}
+        .hui-header + script + .hui-wrap {
+            padding-top: 0px;
+        }
+
+        .bgWhite {
+            background: #333;
+        }
+
+        .mine-title {
+            font-size: 4vw;
+            color: #fff;
+            height: 100%;
+            width: 100%;
+            z-index: 1000;
+            float: left;
+            padding-top: 60px;
+            text-align: center;
+        }
+
+        .mine-run {
+            position: relative;
+            text-align: center;
+            height: 60vw;
+            margin-top: 100px;
+        }
+
+        .mine-runing {
+            position: absolute;
+            margin-top: -60px;
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 50%;
+            left: 50%;
+            top: 45%;
+            margin-left: -50px;
+            color: #fff;
+            z-index: 90;
+            background-color: green;
+            background-color: rgba(0,128,0,0.5);
+        }
+
+        .mine-info {
+            float: left;
+            min-height: 200px;
+            width: 100%;
+            color: #fff;
+            z-index: 99;
+            text-align: center;
+        }
+
+            .mine-info h3 {
+                font-size: 8vw;
+            }
+
+            .mine-info h3, .mine-info p {
+                z-index: 99;
+                color: #fff;
+            }
+
+            .mine-info .hui-button {
+                display: initial;
+            }
+			.mine-info h3, .mine-info p {
+    z-index: 99;
+    color: #fff;
+	padding-bottom:5px;
+}
+    </style>
+
+    <style>        
+        .hui-wrap {padding-bottom:5px;}
+        body{
+            padding-bottom:55px;
+        }
+    </style>
+
+
+    <div class="hui-wrap">
+        <canvas id="matrix" style="position: absolute; z-index: -1; width: 100%; height: 100%" height="736" width="414"></canvas>
+        <div class="mine-title">
+            <?php echo ($info["project"]); ?>
+            <div class="mine-run">
+                <img src="/Public/ybt/image/run.png" style="width: 50%" />
+                <div class="mine-runing">
+                    运行中
+                </div>
+            </div>
+            <div class="mine-info">
+                <h3 id="count">
+                    <?php echo set_number($info['a_time'],'0') * $info['kjsl'];?></h3>
+                <p>可领取：<?php echo set_number($info['a_time'],'0') * $info['kjsl'];?></p>
+                <p>已领取：<?php echo (four_number($info["already_profit"])); ?></p>
+                <p>已运行：<?php echo (set_number($info["a_time"],'0')); ?>/<?php echo ($info["yxzq"]); ?></p>
+				
+<?php if($kjnum != 0): ?><span><a class="button button-big button-fill button-success js-tixian-submit" href="<?php echo U('Shop/jiesuan');?>">一键领取</a></span><?php endif; ?>
+            </div>
+        </div>
+        <form id="form1">
+            <input type="hidden" id="id" name="id" value="<?php echo ($info["id"]); ?>" />
+        </form>
+    </div>
+
+</div>
+
+ <script>
+        var matrix = document.getElementById("matrix");
+        var context = matrix.getContext("2d");
+        matrix.height = window.innerHeight;
+        matrix.width = window.innerWidth;
+        var drop = [];
+        var font_size = 16;
+        var columns = matrix.width / font_size;
+        for (var i = 0; i < columns; i++)
+            drop[i] = 1;
+
+        function drawMatrix() {
+            context.fillStyle = "rgba(0, 0, 0, 0.1)";
+            context.fillRect(0, 0, matrix.width, matrix.height);
+
+            context.fillStyle = "green";
+            context.font = font_size + "px";
+            for (var i = 0; i < columns; i++) {
+                context.fillText(Math.floor(Math.random() * 2), i * font_size, drop[i] * font_size);/*get 0 and 1*/
+
+                if (drop[i] * font_size > (matrix.height * 2 / 3) && Math.random() > 0.85)/*reset*/
+                    drop[i] = 0;
+                drop[i]++;
+            }
+        }
+        var runing = 1;
+        if (runing == 1) {
+            setInterval(drawMatrix, 40);
+
+            //数字
+            var i = parseFloat(document.getElementById("count").innerHTML);
+            var max = parseFloat(i + (1.0416666666667E-5));
+            var time1 = setInterval(function () {
+                var time2 = setInterval(function () {
+                    i = parseFloat((i + 1.0416666666667E-5).toFixed(8));
+                    console.log(i);
+                    if (i >= max) {
+                        clearInterval(time2);
+
+                        i = max;
+                    }
+                    $("#count").html(i.toFixed(8));
+                }, 10);
+                max = i + (1.0416666666667E-5);
+                $("#count").html(i.toFixed(8));
+            }, 1000);
+        } else {
+            $(".hui-wrap").addClass("bgWhite");
+            $(".mine-runing").text("已停止");
+        }
+        //返回
+        hui.BackDo = function () {
+            history.back();
+            return false;
+        };
+    </script>
+
+
+</body></html>

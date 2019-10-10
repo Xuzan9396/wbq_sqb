@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0041)http://www.xxx.com/Home/Index/tgbz/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="noarchive">
+    <!-- 屏蔽-->
+    <title>EBT
+-COIN</title>
+    <meta name="keywords" content=" ">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="IE=9; IE=EDGE" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="/Public/ybt/css/sm.css">
+    <script src="/Public/ybt/js/jquery-1.10.2.min.js"></script>
+
+    <link rel="stylesheet" href="/Public/ybt/css/sm-extend.css">
+
+    <link rel="stylesheet" href="/Public/ybt/css/iconfont.css">
+    <!--自定义-->
+    <link rel="stylesheet" href="/Public/ybt/css/main.css">
+    <link rel="stylesheet" href="/Public/ybt/css/order.css">
+	<script src="/Public/ybt/js/leftTime.min.js"></script>
+    <style type="text/css">
+        <!--
+        .asdfasf {
+            float: right;margin-left: 10px;
+        }
+        -->
+    </style>
+</head>
+<body style="">
+<script type="text/javascript">
+
+    var sid = '554076';
+
+</script>
+<script language="javascript">
+    function get_mobile_code(){
+
+        document.getElementById('zphone').value = '正在发送';
+        //document.getElementById('zphone').disabled = true;
+        //mobile:jQuery.trim($('#mobile').val()),
+        $.post('/Home/Index/fssjyzm', {send_code:sid}, function(msg) {
+            alert(jQuery.trim(unescape(msg)));
+            if(msg=='验证码发送成功'){
+                RemainTime();
+            }else{
+                document.getElementById('zphone').value = '重新发送';
+                document.getElementById('zphone').disabled = false;
+            }
+        });
+    };
+    var iTime = 59;
+    var Account;
+    function RemainTime(){
+        document.getElementById('zphone').disabled = true;
+        var iSecond,sSecond="",sTime="";
+        if (iTime >= 0){
+            iSecond = parseInt(iTime%60);
+            iMinute = parseInt(iTime/60)
+            if (iSecond >= 0){
+                if(iMinute>0){
+                    sSecond = iMinute + "分" + iSecond + "秒";
+                }else{
+                    sSecond = iSecond + "秒";
+                }
+            }
+            sTime=sSecond;
+            if(iTime==0){
+                clearTimeout(Account);
+                sTime='获取手机验证码';
+                iTime = 59;
+                document.getElementById('zphone').disabled = false;
+            }else{
+                Account = setTimeout("RemainTime()",1000);
+                iTime=iTime-1;
+            }
+        }else{
+            sTime='没有倒计时';
+        }
+        document.getElementById('zphone').value = sTime;
+    }
+</script>
+<!-- <div class="page">-->
+
+<!-- 标题栏 -->
+<header class="bar bar-nav">
+
+    <a style="position: absolute;z-index: 19;width: 94%;text-align: center;display: inline-block;line-height: 50px;font-size: 1.1rem; color:#FFF;">交易平台</a>    <div class="logo">
+    <a id="cancle" href="javascript:history.go(-1)"><i class="icon icon-left"></i></a>    </div>
+    <a class="icon pull-right open-panel"></a>
+</header>
+<nav class="foot-bar">
+    <div class="foot-menu"><a href="{:U('Index/Emoney/shouye')}">
+        <i class="iconfont icon-shouye"></i><span>首页</span></a></div>
+    <div class="foot-menu"><a href="{:U('Index/Shop/orderlist')}">
+        <i class="iconfont icon-wxbmingxingdianpu"></i><span>我的矿机</span></a></div>
+    <div class="foot-menu"><a href="{:U('Index/Account/myAccount')}">
+        <i class="iconfont icon-gouwuche"></i><span>我的团队</span></a></div>
+    <div class="foot-menu"><a href="{:U('Index/Emoney/index')}">
+        <i class="iconfont icon-wxbdingwei"></i><span>交易平台</span></a></div>
+    <div class="foot-menu"><a href="/">
+        <i class="iconfont icon-geren"></i><span>会员中心</span></a></div>
+</nav>
+
+<div class="content" id="main_content">
+
+    <div class="buttons-tab">
+        <a href="{:U('Index/Emoney/index')}" class="button">交易大厅</a>
+        <a href="{:U('Index/Emoney/mairu')}" class="button">买入EBT
+</a>
+        <a href="{:U('Index/Emoney/maichu')}" class="active button">卖出EBT
+</a>
+
+    </div>
+
+
+    <!--表格开始-->
+    <div class="tabs"><br>
+
+        <h4 style="color: #333333; font-size:18px;">我的卖出列表</h4>
+        <hr color="#333333" size="1">
+        <div class="card">
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
+                <thead>
+                <tr>
+                    <th align="center"><div align="center">数量</div></th>
+
+                    <th align="center"><div align="center">单价</div></th>
+                    <th align="center"><div align="center">合计金额</div></th>
+                    <th align="center"><div align="center">状态</div></th>
+                    <th align="center"><div align="center">挂单时间</div></th>
+                    <th align="center"><div align="center">操作</div></th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="list" item="v">
+                    <tr>
+                        <td align="center" valign="middle">{$v.cbt}</td>
+                        <td align="center" valign="middle">{$v.danjia}</td>
+                        <td align="center" valign="middle">{$v.qian}</td>
+
+                        <td align="center" valign="middle">
+                            <if condition="$v.zt eq 0"> <span style="color:red" id="w_{$v.id}">等待中</span></if> <if condition="$v.zt eq 1">交易中</if>
+                            <if condition="$v.zt eq 2">交易完成</if></td>
+                        <td align="center" valign="middle"><span  class="money" >{$v.date|date='Y-m-d H:i:s',###}</span></td>
+                        <td align="center" valign="middle">
+                            <if condition="$v.zt eq 0">
+                                <span  class="money" ><a class="button button-fill button-warning" style="width:80px;font-size:16px;" onclick="if(confirm('挂单后30分钟后才可以撤销，确认撤销吗?')==false)return false;" href="{:U('Emoney/mcchexiao',array('id'=>$v['id']))}">撤销</a></span>
+                            </if>
+                            <if condition="$v.zt eq 1">
+                                <span  class="money" ><a class="button button-fill1 button-warning" style="width:80px;font-size:16px;" onclick="if(confirm('不可操作，订单正在交易中！')==false)return false;">交易中</a></span>
+                            </if>
+                            <if condition="$v.zt eq 2">
+                                <span  class="money" ><a class="button button-fill2 button-warning" style="width:80px;font-size:16px;" onclick="if(confirm('不可操作，订单已交易完成！')==false)return false;">交易完成</a></span>
+                            </if>
+                        </td>
+                    </tr>
+					<script>		
+$.leftTime("{:date('Y/m/d H:i:s',$v['date']+7200)}",function(d{$v.id}){
+	if(d{$v.id}.status){
+		//d.status 状态
+		//d.d 天
+		//d.h 时
+		//d.m 分
+		//d.s 秒
+		$("#w_{$v.id}").text(d{$v.id}.h+'小时'+d{$v.id}.m+'分'+d{$v.id}.s+'秒');
+	}else{
+		$("#w_{$v.id}").text('交易中');
+		$.get('{:U('jyzx',array('type'=>'mc','id'=>$v['id']))}',function(res){
+		});
+	}
+});</script>
+                </foreach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="text-align: center">{$page}</div>
+
+    <!--表格结束-->
+    <!--表格开始-->
+    <div class="tabs"><br>
+
+        <h4 style="color: #333333; font-size:18px;">我的卖出交易列表</h4>
+        <hr color="#333333" size="1">
+        <div class="card">
+
+            <foreach name="lists" item="l">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
+
+                    <tbody>
+                    <tr>
+                        <th colspan="4" bgcolor="#CCCCCC">
+
+                            <if condition="$l['zt'] eq 1">
+                                <if condition="empty($l['image'])">
+                                     交易状态: 等待打款</span>
+									
+
+                                    <else/>
+                                    <span id="ww_{$l.id}">交易状态: 等待确认</span>
+															<script>		
+$.leftTime("{:date('Y/m/d H:i:s',$l['date']+7200)}",function(dd{$l.id}){
+	if(dd{$l.id}.status){
+		//d.status 状态
+		//d.d 天
+		//d.h 时
+		//d.m 分
+		//d.s 秒
+		$("#ww_{$l.id}").text(dd{$l.id}.h+'小时'+dd{$l.id}.m+'分'+dd{$l.id}.s+'秒');
+	}else{
+		$("#ww_{$l.id}").text('交易状态:交易超时');
+		$.get('{:U('jyzx',array('type'=>'mr','id'=>$l['id']))}',function(res){
+		});
+	}
+});</script>
+               
+                                </if>
+                            </if>
+                            <if condition="$l['zt'] eq 2">交易状态: 已确认</if>
+                        </th>
+
+
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>{$l.date|date='Y-m-d H:i:s',###}</td>
+                        <td>卖出数量:  <font color="red"> {$l.cbt}</font></td>
+                        <td>单价:   <font color="red">{$l.danjia}$</font> </td>
+                        <td>总额:   <font color="red">{$l.qian}$</font></td>
+                    </tr>
+
+                    <if condition="$l['zt'] eq 1">
+                        <tr>
+
+                            <if condition = "!empty($l['image'])">
+                                <td><a href="{:U('Emoney/cktp',array('id'=>$l['id']))}" class="button button-fill button-warning"  style="width:80px;font-size:16px;align:center;" >查看图片</a></td>
+                                <else/>
+                                <td><a class="button button-fill1 button-warning" onclick="if(confirm('买家还未上传付款页截图，请耐心等待或致电沟通！')==false)return false;" style="width:80px;font-size:16px;align:center;" >图片未传</a></td>
+                            </if>
+
+                            <td><a class="button button-fill button-warning" href="{:U('Emoney/mrxq',array('id'=>$l['id']))}" style="width:80px;font-size:16px;align:center;" >详细信息</a></td>
+
+
+                            <td>
+                                <a href="{:U('Emoney/tousu',array('id'=>$l['id']))}" class="button button-fill button-warning"  style="width:80px;font-size:16px;align:center;" >投诉</a>
+
+                            </td>
+
+
+                            <td><a class="button button-fill button-warning" href="{:U('Emoney/mcwc',array('id'=>$l['id']))}"  style="width:80px;font-size:16px;align:center;" >完成交易</a></td>
+                        </tr>
+                    </if>
+
+                    </tbody>
+                </table>
+            </foreach>
+        </div>
+    </div>
+
+
+    <!--表格结束-->
+
+</div>
+
+
+
+
+
+</body></html>

@@ -1,0 +1,147 @@
+.mui-bar{
+	display: flex;
+	align-items: center;
+}
+
+.mui-title{
+	line-height: normal;
+}
+
+.iconfont{
+	font-size: 24px;
+	/* color: #2d2d2d; */
+}
+
+
+/*assets*/
+.assets{
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.assets>div:nth-child(2){
+	margin-left: auto;
+}
+
+.assets>div:nth-child(1)>span{
+	font-family: PingFang-SC-Bold;
+	font-size: 13px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #2d2d2d;
+}
+
+.assets>div:nth-child(2)>span{
+	font-family: PingFang-SC-Medium;
+	font-size: 13px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #a1acbc;
+}
+
+.assets>div>input{
+	border:none;
+	text-align: right;
+	font-family: PingFang-SC-Medium;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #a1acbc;
+}
+
+input::-webkit-input-placeholder {
+	font-family: PingFang-SC-Medium;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #a1acbc;
+}
+
+.mui-table-view-cell{
+	height: 47px;
+}
+
+.mui-table-view:before{
+	height: 0;
+}
+
+.mui-table-view:after{
+	height: 0;
+}
+
+.mui-table-view-cell:after{
+	background-color:#eaeef4;
+}
+
+/*subMessage*/
+
+.subMessage{
+	margin: 50px 0;
+}
+
+.subMessage>button{
+	font-family: PingFang-SC-Medium;
+	/* font-size: 14px; */
+	border-radius:15px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+	border:none;
+	background-color: #0e696d;
+	width: 70%;
+	margin-left: 15%;
+}
+
+/*code*/
+.code{
+	padding: 25px 20px;
+}
+
+.code>div:nth-child(1)>span{
+	font-family: PingFang-SC-Bold;
+	font-size: 13px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #2d2d2d;
+}
+
+.code>div:nth-child(2){
+	display: table;
+	margin:0 auto;
+}
+
+.code>div:nth-child(2)>div:nth-child(2){
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.code>div:nth-child(2)>div:nth-child(1)>span{
+	font-family: PingFang-SC-Medium;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #a1acbc;
+}
+
+.code>div:nth-child(2)>div:nth-child(2)>div:nth-child(2){
+	margin-left: 50px;
+}
+
+.code>div:nth-child(2)>div:nth-child(2)>div>img{
+	width: 107.5px;
+	height: 161.5px;
+}
+
+.code>div:nth-child(2)>div:nth-child(2)>div>div>img{
+	width: 107.5px;
+	height: 161.5px;
+}
