@@ -1,0 +1,6 @@
+/vendor/
+/runtime/
+*.log
+LICENSE.txt
+/log/
+.idea/
