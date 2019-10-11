@@ -476,21 +476,21 @@ function mmtjrennumadd($parent_id,$l=1)
 
 			
 
-					}else if($ljmrl>=2800){
+					}else if($ljmrl>=3000){
 
 		
 
 						$nowLevel = 5;
 
-					}else if($ljmrl>=1200){
+					}else if($ljmrl>=1000){
 
 						$nowLevel = 4;
 
-					}else if($ljmrl>=600){
+					}else if($ljmrl>=500){
 
 						$nowLevel = 3;
 
-					}else if($ljmrl>=300){
+					}else if($ljmrl>=200){
 
 						$nowLevel = 2;
 
