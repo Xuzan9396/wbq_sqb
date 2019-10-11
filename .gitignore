@@ -1,8 +1,8 @@
 /vendor/
-/runtime/
 *.log
 LICENSE.txt
 /log/
 .idea/
 /APP/Runtime/Cache/Index/*
 /APP/Runtime/Cache/Systemlogined/*
+/APP/Runtime/Cache/Temp/*
