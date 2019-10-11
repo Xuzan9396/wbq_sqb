@@ -1612,7 +1612,7 @@ function sendSMS2($mobile, $code,$session_id){
 
 	$appkey = C('CODE_APIKEY'); //请用自己的appkey代替
 
-	$content="您的验证码是{$qycode}【EBT】";
+	$content="您的验证码是{$qycode}【IOX】";
 
 	//$url="http://api.jisuapi.com/sms/send?appkey=$appkey&mobile=$mobile&content=$content";
 

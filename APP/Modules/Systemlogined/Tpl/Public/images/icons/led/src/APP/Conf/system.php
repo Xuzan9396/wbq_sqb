@@ -1,4 +1,5 @@
-<?php
+<?php
+
 return array (
   'zs_num' => 1000,
   'qdzs' => 100000,
@@ -75,7 +76,7 @@ return array (
   'everyday_drop' => 0,
   'everyday_last_time' => 1554739219,
   'recharge_type' => 1,
-  'adurl' => 'EBT模式刚开盘速度上车吃肉 
+  'adurl' => 'IOX模式刚开盘速度上车吃肉 
  刚开盘,首码首码,老盘回归,BEG模式 买1卖1.7  
     年 月️号️点开盘，开盘价0.07美元每天固定0.07美元单边上涨,一战成名   
  控盘精湛，团队实力雄厚 
@@ -130,5 +131,6 @@ return array (
   'sq_zc' => 0,
   'sq_id' => 0,
   'sqkj_num' => 0,
-);
+);
+
 ?>
