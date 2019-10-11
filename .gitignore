@@ -4,4 +4,5 @@
 LICENSE.txt
 /log/
 .idea/
-/APP/Runtime/
+/APP/Runtime/Cache/Index/*
+/APP/Runtime/Cache/Systemlogined/*

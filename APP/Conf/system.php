@@ -73,7 +73,7 @@ return array (
   'sms_type' => '1',
   'everyday_rose' => 0.01,
   'everyday_drop' => 0,
-  'everyday_last_time' => 1570681570,
+  'everyday_last_time' => 1570723560,
   'recharge_type' => 1,
   'adurl' => 'BT模式刚开盘速度上车吃肉 
  刚开盘,首码首码,老盘回归,BE模式 买1卖1.7  
