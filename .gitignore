@@ -6,3 +6,4 @@ LICENSE.txt
 /APP/Runtime/Cache/Index/*
 /APP/Runtime/Cache/Systemlogined/*
 /APP/Runtime/Cache/Temp/*
+/APP/Conf/config.php
