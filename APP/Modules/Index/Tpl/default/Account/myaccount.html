@@ -149,7 +149,17 @@
                     <!-- <td align="center">{$v.kjnum}</td> -->
 
                     <td align="center"><div align="center">{$v.logintime|friend_date=###}</div></td>
-                    <td align="center">{$v.is_arch}</td>
+
+                    <if condition="$v['is_draw'] eq 1">
+                        <td align="center">已领取</td>
+
+                        <else/>
+                        <td>
+                            <a class="button  button-fill button-success js-tixian-submit" href="{:U('Account/draw',['username'=>$v['username']])}">领取</a>
+
+                        </td>
+                    </if>
+
 
 
                 </tr>
