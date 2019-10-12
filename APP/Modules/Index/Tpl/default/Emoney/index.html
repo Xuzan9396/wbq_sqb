@@ -271,11 +271,11 @@
 
 			}
 
-			
+
 
 ?>
 
-					<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},确认出售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
+					<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$trading_coupon_num}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
 
 				</tr>
 
