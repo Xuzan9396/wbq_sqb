@@ -8,3 +8,4 @@ LICENSE.txt
 /APP/Runtime/Cache/Temp/*
 /APP/Conf/config.php
 /APP/Conf/system.php
+/Public/erwei/*
