@@ -144,7 +144,7 @@
 
 
                     <td align="center">{$v.ztnum}</td>
-                    <td align="center">{$v.is_arch}</td>
+                    <td align="center">{$v.is_arch_str}</td>
 
                     <!-- <td align="center">{$v.kjnum}</td> -->
 
@@ -154,10 +154,17 @@
                         <td align="center">已领取</td>
 
                         <else/>
+
+                        <if condition="$v['is_arch'] eq 1">
                         <td>
                             <a class="button  button-fill button-success js-tixian-submit" href="{:U('Account/draw',['username'=>$v['username']])}">领取</a>
 
                         </td>
+
+                            <else/>
+                            <td align="center">未领取</td>
+
+                        </if>
                     </if>
 
 
