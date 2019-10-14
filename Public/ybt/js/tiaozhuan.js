@@ -1,21 +1,14 @@
-if (('standalone' in window.navigator) && window.navigator.standalone) {
-
-    window.addEventListener('load', function() {
-
-        var links = document.links,
-            link,
-            i;
-
-        for (i = 0; i < links.length; i++) {
-            // Don't do this for javascript: links
-            if (~(link = links[i]).href.toLowerCase().indexOf('javascript')) {
-                link.addEventListener('click', function(event) {
-                    top.location.href = this.href;
-                    event.returnValue = false;
-                }, false);
-            }
+if(("standalone" in window.navigator) && window.navigator.standalone){
+    var noddy, remotes = false;
+    document.addEventListener('click', function(event) {
+        noddy = event.target;
+        while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+            noddy = noddy.parentNode;
         }
-
-    }, false);
-
+        if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes))
+        {
+            event.preventDefault();
+            document.location.href = noddy.href;
+        }
+    },false);
 }
