@@ -38,9 +38,9 @@ if($cur_time - $_SESSION['last_time'] < $seconds){
 
         //跳转至攻击者服务器地址
 
-        header(sprintf('Location:%s', 'http://127.0.0.1'));
+//        header(sprintf('Location:%s', 'http://127.0.0.1'));
 
-        exit('Access Denied');
+//        exit('Access Denied');
 
     }
 
