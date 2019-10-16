@@ -1,6 +1,6 @@
 <?php
 
-
+//开盘前还需解决的其他问题：1.交易券排序不正常。2、批量封号功能3、匹配成功后买家不付款不上传收款凭证的 2小时自动退回功能，并且封买家号 4、买家付款上传凭证之后，卖家不点击完成交易，2小时自动点击完成交易的功能，并且封卖家号、
 
 function getPdo(){
 
@@ -11,12 +11,12 @@ function getPdo(){
         'db_pwd'  => '123456',
     );
 
-    $mysql_conf = array(
-        'host'    => 'mysql',
-        'db'      => 'sqb_db',
-        'db_user' => 'root',
-        'db_pwd'  => '27252725',
-    );
+//    $mysql_conf = array(
+//        'host'    => 'mysql',
+//        'db'      => 'sqb_db',
+//        'db_user' => 'root',
+//        'db_pwd'  => '27252725',
+//    );
     $servername = $mysql_conf['host'];
     $username = $mysql_conf['db_user'];
     $password = $mysql_conf['db_pwd'];
@@ -94,7 +94,7 @@ function _doPrepare( $sql, $binds, $pdo )
     return $ps;
 }
 
-$sql = "select * from sqb_db.ds_member limit 5";
+$sql = "select * from ds_member limit 5";
 
 echo '<pre>';
     var_dump(read($sql));
