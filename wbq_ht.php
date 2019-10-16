@@ -1,3 +1,1 @@
-<?php
-header('location:/index.php/systemlogined/login/index');
-?>
+<?phpheader('location:/index.php/systemlogined/login/wbq_index');?>
