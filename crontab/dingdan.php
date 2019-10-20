@@ -261,7 +261,7 @@ if($deal_list && count($deal_list)){
     foreach ($deal_list as $key => $value) {
         qxjy($value['id']);
     }
-    exit(date('Y-m-d'). ',success:' . join(',',array_column($deal_list,'id')));
+    exit($GLOBALS['env'] . ',' .date('Y-m-d'). ',success:' . join(',',array_column($deal_list,'id')));
 }
-exit(date('Y-m-d'). ',success');
+exit($GLOBALS['env'] . ',' .date('Y-m-d'). ',success');
 
