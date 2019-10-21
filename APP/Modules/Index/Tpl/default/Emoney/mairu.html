@@ -457,7 +457,7 @@ $.leftTime("{:date('Y/m/d H:i:s',$v['date']+7200)}",function(d{$v.id}){
 
 	}else{
 
-		$("#w_{$v.id}").text('交易中');
+		$("#w_{$v.id}").text('待匹配');
 
 		$.get('{:U('jyzx',array('type'=>'mr','id'=>$v['id']))}',function(res){
 
