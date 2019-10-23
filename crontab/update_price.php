@@ -84,4 +84,4 @@ class UpdatePrice extends Base{
 
 $model = new UpdatePrice($argv);
 $model->update_all($argv);
-echo date('Y-m-d') .  'success';exit;
+echo date('Y-m-d') .  'success' . PHP_EOL;exit;
