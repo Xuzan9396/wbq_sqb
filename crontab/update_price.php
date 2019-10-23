@@ -64,6 +64,8 @@ class UpdatePrice extends Base{
 /*                $data = "<?php\r\nreturn " . var_export($config, true) . ";\r\n?>";*/
 
 //                file_put_contents($path, $data);
+            }else{
+                echo date('Y-m-d',$date_time) . ':时间不匹配' . PHP_EOL;
             }
         }
 
