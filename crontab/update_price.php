@@ -61,7 +61,9 @@ class UpdatePrice extends Base{
 //                $config['everyday_last_time']      = time();
 
 
-/*                $data = "<?php\r\nreturn " . var_export($config, true) . ";\r\n?>";*/
+                echo date('Y-m-d') .  'success' . PHP_EOL;exit;
+
+                /*                $data = "<?php\r\nreturn " . var_export($config, true) . ";\r\n?>";*/
 
 //                file_put_contents($path, $data);
             }else{
@@ -86,4 +88,3 @@ class UpdatePrice extends Base{
 
 $model = new UpdatePrice($argv);
 $model->update_all($argv);
-echo date('Y-m-d') .  'success' . PHP_EOL;exit;
