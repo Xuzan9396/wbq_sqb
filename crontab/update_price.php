@@ -69,6 +69,7 @@ class UpdatePrice extends Base{
 //                file_put_contents($path, $data);
             }else{
                 echo $dates . ':时间不匹配' . PHP_EOL;
+                exit;
             }
         }
 
