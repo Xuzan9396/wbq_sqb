@@ -41,7 +41,7 @@ class UpdatePrice extends Base{
             $date_time = strtotime(date('Y-m-d',$res['date']));
             $time = strtotime(date('Y-m-d'));
             if($date_time >= $time){
-                echo $dates . '已经最新了';
+                echo $dates . '已经最新了' . PHP_EOL;
                 exit;
 
             }
