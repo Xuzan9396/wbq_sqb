@@ -32,6 +32,8 @@ class UpdatePrice extends Base{
 
     public function update_price(  )
     {
+
+        $dates = date('Y-m-d H:i:s');
         $sql = "select * from ds_date order by id desc limit 1";
         $res = $this->read($sql,[],1);
 
@@ -39,10 +41,9 @@ class UpdatePrice extends Base{
             $date_time = strtotime(date('Y-m-d',$res['date']));
             $time = strtotime(date('Y-m-d'));
             if($date_time >= $time){
-                echo '<pre>';
-                    var_dump('已经最新了');
-                echo '</pre>';
+                echo $dates . '已经最新了';
                 exit;
+
             }
 
             $path = "../APP/Conf/system.php";
@@ -61,13 +62,13 @@ class UpdatePrice extends Base{
 //                $config['everyday_last_time']      = time();
 
 
-                echo date('Y-m-d') .  'success' . PHP_EOL;exit;
+                echo $dates.  'success' . PHP_EOL;exit;
 
                 /*                $data = "<?php\r\nreturn " . var_export($config, true) . ";\r\n?>";*/
 
 //                file_put_contents($path, $data);
             }else{
-                echo date('Y-m-d',$date_time) . ':时间不匹配' . PHP_EOL;
+                echo $dates . ':时间不匹配' . PHP_EOL;
             }
         }
 
