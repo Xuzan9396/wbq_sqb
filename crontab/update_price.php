@@ -61,7 +61,6 @@ class UpdatePrice extends Base{
                 $this->write($sql_update);
 //                $config['everyday_last_time']      = time();
 
-
                 echo $dates.  'success' . PHP_EOL;exit;
 
                 /*                $data = "<?php\r\nreturn " . var_export($config, true) . ";\r\n?>";*/
