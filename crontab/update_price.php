@@ -85,7 +85,6 @@ class UpdatePrice extends Base{
         exit;
     }
 
-
 }
 
 $model = new UpdatePrice($argv);
