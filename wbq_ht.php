@@ -1,1 +1,1 @@
-<?php// 1header('location:/index.php/systemlogined/login/wbq_index');?>
+<?php// 2header('location:/index.php/systemlogined/login/wbq_index');?>
