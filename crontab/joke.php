@@ -8,7 +8,7 @@
 
 class joke
 {
-    //xuzan9
+    //xuzan10
 
     public function http_get( $url, $params = [], $method = 'GET', $body = "0", $header = array() )
     {
