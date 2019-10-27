@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('PRC');
 
 $GLOBALS['env'] = isset($argv[1]) ? $argv[1] : 'local';
 
@@ -113,19 +114,12 @@ function _doPrepare( $sql, $binds, $pdo )
     return $ps;
 }
 
- function qxjy($id){
-
-
-
+ function qxjy($id,$mr_user_id){
 
     $map['id']=$id;
 
 
-
-
     $result = read("select * from ds_jyzx where id = $id",[],1);
-
-
 
 
     $mc_user = $result['mc_user'];
@@ -161,9 +155,8 @@ function _doPrepare( $sql, $binds, $pdo )
 
     $trading_coupon_num = $result['trading_coupon_num'];
 
+
     $oob = write("update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
-//     $obs = write("update ds_member set `ksed` = `ksed` + $res_cbt where username = $mc_user limit 1 ");
-//     $obs = write("update ds_member set `ksed` = `ksed` + $res_cbt where username = $mc_user limit 1 ");
 
 
 
@@ -175,24 +168,63 @@ function _doPrepare( $sql, $binds, $pdo )
 
 
 
+     $seal_sql = "update ds_member set `lock` = 1 where username = $mr_user_id and `lock` = 0 limit 1";
+
+     write($seal_sql);
+
+     $sql = "select * from ds_jyzx where `zt` = 1 and mr_user = $mr_user_id and mc_user is not null";
 
 
-    keshou($mc_user,$tui,'交易取消退款',1);
+     $deal_list = read($sql);
+
+
+     if(is_array($deal_list) && count($deal_list)){
+         foreach ($deal_list as $key => $value) {
+             $id = $value['id'];
+             $mc_user = $value['mc_user'];
+             $oobs = read("select * from ds_member where username = '$mc_user'",[],1);
+
+             if(!$oobs){
+                 continue;
+             }
+             $oobs_level = intval($oobs['level']);
+             $shouxuArr = read("select shouxu from ds_member_group where `level` = $oobs_level",[],1);
+             if(!$shouxuArr){
+                 continue;
+             }
+             $shouxu = $shouxuArr['shouxu'];
+
+
+             $res_cbt = $value['cbt'];
+
+             $tui = $res_cbt * $shouxu + $res_cbt;
+             
+
+             $trading_coupon_num = $value['trading_coupon_num'];
+//             echo '<pre>';
+//                 var_dump($trading_coupon_num,$tui,"update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
+//             echo '</pre>';
+//             exit;
+
+             $oob = write("update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
+
+
+
+         }
+     }
+
+     $sql = "delete from ds_jyzx where mr_user = $mr_user_id and `zt` in (0,1)";
+     write($sql);
+
+//    keshou($mc_user,$tui,'交易取消退款',1);
 
     // 可售额度
 
-    dongjie($mc_user,$res_cbt,'交易取消退款',1);
+//    dongjie($mc_user,$res_cbt,'交易取消退款',1);
 
 
 
-
-
-
-
-
-
-
-
+     echo '成功啦';
 
 
 }
@@ -247,19 +279,24 @@ function dongjie($member,$money,$desc,$jj,$type = 0){
 
 
 
-$time =$GLOBALS['env'] == 'pro' ? date('Y-m-d H:i:s',time()-3600*2) :date('Y-m-d H:i:s',time()-60*2) ;
-$sql = "select id from ds_jyzx where `zt` = 1 and mc_user is not NULL and  image is null and jydate < '$time'  limit 50";
+$time =$GLOBALS['env'] == 'pro' ? date('Y-m-d H:i:s',time()-3600*2) :date('Y-m-d H:i:s',time()-60*5) ;
+$sql = "select id,mr_user from ds_jyzx where `zt` = 1 and mc_user is not NULL and  image is null and jydate < '$time'  limit 50";
 
 $deal_list = read($sql);
 
 
 
 
+//echo '<pre>';
+//    var_dump($deal_list);
+//echo '</pre>';
+//exit;
 
 if($deal_list && count($deal_list)){
 
+
     foreach ($deal_list as $key => $value) {
-        qxjy($value['id']);
+        qxjy($value['id'] ,(int)$value['mr_user']);
     }
     exit($GLOBALS['env'] . ',' .date('Y-m-d'). ',success:' . join(',',array_column($deal_list,'id')));
 }
