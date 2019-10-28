@@ -216,6 +216,10 @@ function _doPrepare( $sql, $binds, $pdo )
      $sql = "delete from ds_jyzx where mr_user = $mr_user_id and `zt` in (0,1)";
      write($sql);
 
+
+     $sql = "Call Proc_Member_titles('$mr_user_id','add')";
+     read($sql);
+
 //    keshou($mc_user,$tui,'交易取消退款',1);
 
     // 可售额度
@@ -286,6 +290,13 @@ $deal_list = read($sql);
 
 
 
+//$sql = "Call Proc_Member_titles('188888888887','select')";
+//$res = read($sql,[],1);
+//
+//echo '<pre>';
+//    var_dump($res);
+//echo '</pre>';
+//exit;
 
 //echo '<pre>';
 //    var_dump($deal_list);
