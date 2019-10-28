@@ -160,10 +160,10 @@ function _doPrepare( $sql, $binds, $pdo )
 
 
 
-     $sql = "update ds_jyzx set `zt` = 0,`jydate` = '', `mc_user` = '', `mc_level` = '', `mc_id` = '', `trading_coupon_num` = 0 where id = $id  limit 1";
+//     $sql = "update ds_jyzx set `zt` = 0,`jydate` = '', `mc_user` = '', `mc_level` = '', `mc_id` = '', `trading_coupon_num` = 0 where id = $id  limit 1";
 
 
-     write($sql);
+//     write($sql);
 
 
 
@@ -288,8 +288,12 @@ $deal_list = read($sql);
 
 
 
-//$sql = "Call Proc_Member_titles('188888888887','select')";
-//$res = read($sql,[],1);
+//$sql = "Call Proc_Member_titles('18888888887','add')";
+//$res = read($sql);
+//echo '<pre>';
+//    var_dump($res);
+//echo '</pre>';
+//exit;
 //
 //echo '<pre>';
 //    var_dump($res);
