@@ -282,7 +282,6 @@ function dongjie($member,$money,$desc,$jj,$type = 0){
 
 
 
-
 $time =$GLOBALS['env'] == 'pro' ? date('Y-m-d H:i:s',time()-3600*2) :date('Y-m-d H:i:s',time()-60*5) ;
 $sql = "select id,mr_user from ds_jyzx where `zt` = 1 and mc_user is not NULL and  image is null and jydate < '$time'  limit 50";
 
