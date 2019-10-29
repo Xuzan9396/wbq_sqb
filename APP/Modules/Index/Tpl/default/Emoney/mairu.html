@@ -406,7 +406,15 @@
                         <td align="center" valign="middle">
 
                             <if condition="$v.zt eq 0"> 待匹配</if>
-                            <if condition="$v.zt eq 1"><span style="color:red" id="w_{$v.id}">交易中</span></if>
+                            <if condition="$v.zt eq 1">
+                                <if condition="empty($v.image)">
+
+                                <span style="color:red" id="w_{$v.id}">交易中</span>
+                                    <else/>
+                                    待确认
+                                </if>
+
+                            </if>
 
                             <if condition="$v.zt eq 2">交易完成</if></td>
 
