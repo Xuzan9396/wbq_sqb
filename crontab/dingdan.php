@@ -156,7 +156,7 @@ function _doPrepare( $sql, $binds, $pdo )
     $trading_coupon_num = $result['trading_coupon_num'];
 
 
-    $oob = write("update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
+//    $oob = write("update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
 
 
 
