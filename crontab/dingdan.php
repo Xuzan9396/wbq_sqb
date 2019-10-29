@@ -172,7 +172,7 @@ function _doPrepare( $sql, $binds, $pdo )
 
      write($seal_sql);
 
-     $sql = "select * from ds_jyzx where `zt` = 1 and mr_user = $mr_user_id and mc_user is not null";
+     $sql = "select * from ds_jyzx where `zt` = 1 and mr_user = $mr_user_id and mc_user is not null and image is null";
 
 
      $deal_list = read($sql);
