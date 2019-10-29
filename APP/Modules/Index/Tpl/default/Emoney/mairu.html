@@ -407,7 +407,7 @@
 
                             <if condition="$v.zt eq 0"> 待匹配</if>
                             <if condition="$v.zt eq 1">
-                                <if condition="empty($v.image)">
+                                <if condition="empty($v['image'])">
 
                                 <span style="color:red" id="w_{$v.id}">交易中</span>
                                     <else/>
