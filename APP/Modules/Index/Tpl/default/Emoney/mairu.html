@@ -405,7 +405,8 @@
 
                         <td align="center" valign="middle">
 
-                            <if condition="$v.zt eq 0"> <span style="color:red" id="w_{$v.id}">等待中</span></if> <if condition="$v.zt eq 1">交易中</if>
+                            <if condition="$v.zt eq 0"> 待匹配</if>
+                            <if condition="$v.zt eq 1"><span style="color:red" id="w_{$v.id}">交易中</span></if>
 
                             <if condition="$v.zt eq 2">交易完成</if></td>
 
@@ -439,7 +440,7 @@
 
 <script>		
 
-$.leftTime("{:date('Y/m/d H:i:s',$v['date']+7200)}",function(d{$v.id}){
+$.leftTime("{:date('Y/m/d H:i:s',$v['jydate']+7200)}",function(d{$v.id}){
 
 	if(d{$v.id}.status){
 
@@ -451,13 +452,17 @@ $.leftTime("{:date('Y/m/d H:i:s',$v['date']+7200)}",function(d{$v.id}){
 
 		//d.m 分
 
+
 		//d.s 秒
 
 		$("#w_{$v.id}").text(d{$v.id}.h+'小时'+d{$v.id}.m+'分'+d{$v.id}.s+'秒');
 
 	}else{
 
-		$("#w_{$v.id}").text('待匹配');
+        // $("#w_{$v.id}").text({$v['jydate']});
+
+
+        $("#w_{$v.id}").text('交易中');
 
 		$.get('{:U('jyzx',array('type'=>'mr','id'=>$v['id']))}',function(res){
 
