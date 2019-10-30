@@ -256,15 +256,12 @@
                                     <option value="0">请选择数量</option>
 
 
+                                    <foreach name="coupon_list" item="v_coupon">
 
 
-                                    <option value="3">3</option>
-                                    <option value="5">5</option>
 
-                                    <option value="10">10</option>
-                                    <option value="20">20</option>
-
-                                    <option value="50">50</option>
+                                        <option value="{$v_coupon['number']}">{$v_coupon['number']}</option>
+                                    </foreach>
 
 
                                 </select>
