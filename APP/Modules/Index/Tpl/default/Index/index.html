@@ -95,57 +95,7 @@
 
 				<p>用户等级：<?php
 
-					if($ljmrl>=10000){
 
-						$level = 7;
-
-						echo '七级矿工';
-
-					}else if($ljmrl>=5600){
-
-						$level = 6;
-
-						echo '六级矿工';
-
-					}else if($ljmrl>=3000){
-
-						echo '五级矿工';
-
-						$level = 5;
-
-					}else if($ljmrl>=1000){
-
-						echo '四级矿工';
-
-						$level = 4;
-
-					}else if($ljmrl>=500){
-
-						echo '三级矿工';
-
-						$level = 3;
-
-					}else if($ljmrl>=200){
-
-						echo '二级矿工';
-
-						$level = 2;
-
-					}else if($ljmrl>=50){
-
-						echo '一级矿工';
-
-						$level = 1;
-
-					}else{
-
-						echo '普通会员';
-
-						$level = 0;
-
-					}
-
-					M('member')->where(array('id' => $minfo['id']))->save(array('level'=>$level));
 
 				
 
