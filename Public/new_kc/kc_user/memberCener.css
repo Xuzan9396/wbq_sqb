@@ -1,0 +1,188 @@
+.userInfo{
+    width: 13.8rem;
+    height: 5.36rem;
+    background-image: url('../images/huiyuan-bg.png');
+    background-size: 13.8rem 5.36rem;
+    margin: 0 0.6rem;
+    border-radius: 0.2rem;
+    color: white;
+}
+.userInfo .topInfo{
+    width: 13.8rem;
+    height: 3.16rem;
+    position: relative;
+    border-bottom: 0.02rem solid #95a4fc;
+    box-sizing: border-box;
+}
+.userInfo .topInfo .p{
+    width: 1.92rem;
+    height: 1.92rem;
+    border-radius: 50%;
+    margin-top: 0.62rem;
+    margin-left: 0.6rem;
+}
+.userInfo .topInfo .v1{
+    margin-top: 0.6rem;
+    margin-left: 0.6rem;
+}
+.userInfo .topInfo .v1 p{
+    font-size: 0.56rem;
+    line-height: 1rem;
+}
+.userInfo .topInfo .v1 .vv{
+    line-height: 0.9rem;
+}
+.userInfo .topInfo .v1 .vv span:nth-of-type(1){
+    font-size: 0.56rem;
+    padding-right: 0.2rem;
+}
+.userInfo .topInfo .v1 .vv span:nth-of-type(2){
+    font-size: 0.48rem;
+    background: linear-gradient(to right, #ededba, #fad783);
+    color: #b86e17;
+    border-radius: 0.1rem;
+    padding: 0 0.1rem;
+}       
+.userInfo .topInfo .v2{
+    position: absolute;
+}   
+.userInfo .topInfo .back{
+    top: 0.7rem;
+    right: 1rem;
+    font-size: 0.56rem;
+    line-height: 0.8rem;
+    border: 0.02rem solid white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.6rem;
+}
+.userInfo .topInfo .time{
+    bottom: 0.6rem;
+    //right: 2.9rem;
+    font-size: 0.48rem;
+    color: #ffffff;
+}
+
+.userInfo .botInfo{
+    width: 13.8rem;
+    height: 2.2rem;
+}
+.userInfo .botInfo ul{
+    width: 13.8rem;
+}
+.userInfo .botInfo ul li{
+    width: 4.6rem;
+    height: 2.2rem;
+    text-align: center;
+    font-size: 0.56rem;
+    padding-top: 0.4rem;
+}
+.userInfo .botInfo ul li h3{
+    font-size: 0.48rem;
+}
+
+
+.kuang{
+    width: 13.8rem;
+    height: 2.8rem;
+    background-color: #31346b;
+    border-radius: 0.2rem;
+    margin: 0.6rem;
+}
+.kuang ul{
+    width: 13.8rem;
+}
+.kuang ul li{
+    width: 4.6rem;
+    height: 2.8rem;
+    text-align: center;
+    padding-top: 0.6rem;
+    font-size: 0.56rem;
+}
+.kuang ul li p{
+    color: white;
+}
+.kuang ul li h3{
+    color: #777aa5;
+    font-size: 0.48rem;
+    padding-top: 0.2rem;
+}
+
+.ad{
+    width: 13.8rem;
+    height: 2.8rem;
+    margin: 0.6rem;
+}
+.ad img{
+    width: 13.8rem;
+    height: 2.8rem;
+    border-radius: 0.2rem;
+}
+
+.menus{
+    width: 13.8rem;
+    height: 9.3rem;
+    margin: 0.6rem;
+    background-color: #2d3166;
+    color: #7e81bf;
+}
+.menus ul{
+    width: 13.8rem;
+    height: 9.3rem;
+}
+.menus ul li{
+    width: 4.6rem;
+    height: 3.1rem;
+    text-align: center;
+    font-size: 0.48rem;
+}
+.menus ul li a{
+    color: #7e81bf;
+}
+.menus ul li a .v{
+    width: 4.6rem;
+    height: 1.3rem;
+    text-align: center;
+    line-height: 1.5rem;
+    margin-top: 0.6rem;
+}
+/* .menus ul li img{
+    margin-bottom: 0.2rem;
+} */
+.menus ul li:nth-of-type(1) img{
+    width: 1.12rem;
+    height: 0.94rem;
+}
+.menus ul li:nth-of-type(2) img{
+    width: 1.04rem;
+    height: 1.02rem;
+}
+.menus ul li:nth-of-type(3) img{
+    width: 1.06rem;
+    height: 1.06rem;
+}
+.menus ul li:nth-of-type(4) img{
+    width: 1.12rem;
+    height: 0.86rem;
+}
+.menus ul li:nth-of-type(5) img{
+    width: 0.98rem;
+    height: 0.98rem;
+}
+.menus ul li:nth-of-type(6) img{
+    width: 1.1rem;
+    height: 1.08rem;
+}
+.menus ul li:nth-of-type(7) img{
+    width: 1.1rem;
+    height: 0.82rem;
+}
+.menus ul li:nth-of-type(8) img{
+    width: 0.9rem;
+    height: 0.96rem;
+}
+.menus ul li:nth-of-type(9) img{
+    width: 1.02rem;
+    height: 1.02rem;
+}
+
+
