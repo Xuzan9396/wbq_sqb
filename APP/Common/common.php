@@ -1741,7 +1741,7 @@ function sendSMS2($mobile, $code,$session_id){
 
 	$appkey = C('CODE_APIKEY'); //请用自己的appkey代替
 
-	$content="您的验证码是{$qycode}【IOX】";
+	$content="您的验证码是{$qycode}【JLKC】";
 
 	$url="http://api.jisuapi.com/sms/send?appkey=$appkey&mobile=$mobile&content=$content";
 
@@ -1785,7 +1785,7 @@ function sendSMS2($mobile, $code,$session_id){
 
 	$appkey = C('CODE_APIKEY'); //请用自己的appkey代替
 
-	$content="您的验证码是{$qycode}【IOX】";
+	$content="您的验证码是{$qycode}【JLKC】";
 
 	//$url="http://api.jisuapi.com/sms/send?appkey=$appkey&mobile=$mobile&content=$content";
 
@@ -1799,7 +1799,7 @@ function sendSMS2($mobile, $code,$session_id){
 
 	//短信注册地址：http://www.smsbao.com/reg?r=10078
 
-	//$content = $content.'【IOX】';
+	//$content = $content.'【JLKC】';
 
 	$smsapi = "http://api.smsbao.com/"; //短信网关
 
