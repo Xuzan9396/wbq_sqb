@@ -545,7 +545,7 @@ function keshou($member,$money,$desc,$jj,$type){
     $keshoudetail->add($data);
 }
 
-// 矿池资产明细
+// 鱼群数量明细
 function zichan($member,$money,$desc,$jj,$type,$hdjlID=0){
 
     $zichandetail = M('zichandetail');
@@ -572,7 +572,7 @@ function zichan($member,$money,$desc,$jj,$type,$hdjlID=0){
     $zichandetail->add($data);
 }
 
-// /矿池钱包明细
+// /库存鱼籽明细
 function jinbi($member,$money,$desc,$jj,$type){
 
     $jinbidetail = M('jinbidetail');

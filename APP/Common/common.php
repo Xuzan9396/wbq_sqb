@@ -1232,7 +1232,7 @@ function keshou($member,$money,$desc,$jj,$type){
 
 
 
-// 矿池资产明细
+// 鱼群数量明细
 
 function zichan($member,$money,$desc,$jj,$type,$hdjlID=0){
 
@@ -1286,7 +1286,7 @@ function zichan($member,$money,$desc,$jj,$type,$hdjlID=0){
 
 
 
-// /矿池钱包明细
+// /库存鱼籽明细
 
 function jinbi($member,$money,$desc,$jj,$type){
 

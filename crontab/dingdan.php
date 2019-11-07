@@ -222,7 +222,7 @@ function _doPrepare( $sql, $binds, $pdo )
 
 //    keshou($mc_user,$tui,'交易取消退款',1);
 
-    // 可售额度
+    // 可售饲料
 
 //    dongjie($mc_user,$res_cbt,'交易取消退款',1);
 
