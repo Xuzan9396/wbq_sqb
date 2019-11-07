@@ -91,14 +91,14 @@
 
 			<div class="uinfo">
 
-				<p>用户编号：{$minfo.username}</p>
+				<p>用户账号：{$minfo.username}</p>
 
 				<p>用户等级：{$level}</p>
+				<p>团队人数：{$tdnum}</p>
 
 				<p>直推人数：{$ztnum}</p>
 
-				<p>团队人数：{$tdnum}</p>
-				<p>交易券数：{$minfo.trading_coupon_num}</p>
+				<!--<p>交易券数：{$minfo.trading_coupon_num}</p>-->
 
 			</div>
 
@@ -106,17 +106,21 @@
 
 		<div class="my-qiandao" style="width:100%;">
 
-			<div class="row-box clearfix"><a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$minfo.ksye|two_number=###}</span>
+			<div class="row-box clearfix">
+				<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.ksed|two_number=###}</span>
 
-				<p class="subtitle">可售余额</p>
+					<p class="subtitle">锦鲤额度</p>
 
-			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.ksed|two_number=###}</span>
+				</a>
+			<a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$minfo.ksye|two_number=###}</span>
 
-				<p class="subtitle">可售额度</p>
+				<p class="subtitle">锦鲤余额</p>
 
-			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$ljmrl}</span>
+			</a>
 
-				<p class="subtitle">累计买量</p>
+				<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$ljmrl}</span>
+
+				<p class="subtitle">累计锦鲤</p>
 
 			</a></div>
 
@@ -124,17 +128,21 @@
 
 		<div class="my-qiandao" style="width:100%; background:#F47983">
 
-			<div class="row-box clearfix"><a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$jytj11|two_number=###}</span>
+			<div class="row-box clearfix">
+			<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$ljcl|two_number=###}</span>
+
+					<p class="subtitle">总锦鲤</p>
+
+			</a>
+			<a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$jytj11|two_number=###}</span>
 
 				<p class="subtitle">交易冻结</p>
 
-			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$ljcl|two_number=###}</span>
+			</a>
 
-				<p class="subtitle">总收益</p>
+			<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$yxkj}台</span>
 
-			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$yxkj}台</span>
-
-				<p class="subtitle">有效矿机</p>
+				<p class="subtitle">锦鲤矿机</p>
 
 			</a></div>
 
@@ -144,11 +152,11 @@
 
 			<div class="row-box clearfix"><a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$minfo.jinbi|two_number=###}</span>
 
-				<p class="subtitle">矿池钱包</p>
+				<p class="subtitle">锦鲤钱包</p>
 
 			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.kczc|two_number=###}</span>
 
-				<p class="subtitle">矿池资产</p>
+				<p class="subtitle">锦鲤矿池</p>
 
 			</a>
 				<!--<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.teamgonglv}</span>-->
@@ -157,7 +165,7 @@
 
 				<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.ed_bank}</span>
 
-					<p class="subtitle">额度银行</p>
+					<p class="subtitle">额度锦鲤</p>
 
 				</a>
 			</div>
@@ -178,27 +186,31 @@
 
 			<div class="info-list">
 
-				<li><a href="{:U('Index/Shop/qiandao')}"><img src="/Public/ybt/image/info-jsbz.png"><span>我要签到</span></a></li>
-
-				<li><a href="{:U('Account/dhgl')}"><img src="/Public/ybt/image/info-zhuan.png"><span>兑换管理</span></a></li>
+				<li><a href="{:U('Financial/keshou')}"><img src="/Public/ybt/image/info-tgbz.png"><span>财务明细</span></a></li>
 
 				<li><a href="{:U('Account/kczc')}"><img src="/Public/ybt/image/info-jsbz.png"><span>矿池资产</span></a></li>
+				<li><a href="{:U('Account/dhgl')}"><img src="/Public/ybt/image/info-zhuan.png"><span>兑换管理</span></a></li>
+
+				<li><a href="{:U('Account/grzl')}"><img src="/Public/ybt/image/info-pass.png"><span>个人资料</span></a></li>
+
+				<li><a href="{:U('Index/Shop/qiandao')}"><img src="/Public/ybt/image/info-jsbz.png"><span>我要签到</span></a></li>
+
+
+				<li><a href="{:U('Account/shoukuanma')}"><img src="/Public/ybt/image/info-update.png"><span>实名认证</span></a></li>
+
 
 				<li><a href="{:U('Account/hdjl')}"><img src="/Public/ybt/image/info-score.png"><span>活动奖励</span></a></li>
 
 
 
-				<li><a href="{:U('Account/jiefeng')}"><img src="/Public/ybt/image/info-pass.png"><span>交易转券</span></a></li>
+				<!--<li><a href="{:U('Account/jiefeng')}"><img src="/Public/ybt/image/info-pass.png"><span>交易转券</span></a></li>-->
 
 				<li><a href="{:U('Account/tuiguangma')}"><img src="/Public/ybt/image/info-code.png"><span>推广文案</span></a></li>
 
-				<li><a href="{:U('Financial/keshou')}"><img src="/Public/ybt/image/info-tgbz.png"><span>财务明细</span></a></li>
+				<li><a href="{:U('Account/gonggao')}"><img src="/Public/ybt/image/info-update.png"><span>更新公告</span></a></li>
 
 
 
-				<li><a href="{:U('Account/shoukuanma')}"><img src="/Public/ybt/image/info-update.png"><span>实名认证</span></a></li>
-
-				<li><a href="{:U('Account/grzl')}"><img src="/Public/ybt/image/info-pass.png"><span>个人资料</span></a></li>
 
 
 
@@ -208,7 +220,6 @@
 
 
 
-				<li><a href="{:U('Account/gonggao')}"><img src="/Public/ybt/image/info-update.png"><span>更新公告</span></a></li>
 
 			</div>
 
