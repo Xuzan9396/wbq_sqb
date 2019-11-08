@@ -24,7 +24,7 @@ class Base
             case 'local':
                 $mysql_conf = array(
                     'host'    => '127.0.0.1:3308',
-                    'db'      => 'sqb_db',
+                    'db'      => 'jlkc_db',
                     'db_user' => 'root',
                     'db_pwd'  => '123456',
                 );
