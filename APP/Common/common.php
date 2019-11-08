@@ -1392,9 +1392,9 @@ function dongjie($member,$money,$desc,$jj,$type){
 
         //判断是否存在验证码
 
-        $data = M('sms_log')->where(array('mobile'=>$mobile,'session_id'=>$session_id,'code'=>$code))->order('id DESC')->find();
+        $data = M('sms_log')->where(array('mobile'=>$mobile,'session_id'=>$session_id))->order('id DESC')->find();
 
-        if(empty($data))
+        if(empty($data) || $data['status'] == 0)
 
             return array('status'=>-1,'msg'=>'手机验证码不匹配');
 
@@ -1412,11 +1412,13 @@ function dongjie($member,$money,$desc,$jj,$type){
 
 		}
 
-            
+         $id = M('sms_log')->where(array('mobile'=>$mobile,'session_id'=>$session_id))->getLastInsID();
 
-        //M('sms_log')->where(array('mobile'=>$mobile,'session_id'=>$session_id,'code'=>$code))->delete();
+         M('sms_log')->where(array('mobile'=>$mobile,'id' => $id))->save(['is_success' => 0]);
 
-        return array('status'=>1,'msg'=>'验证成功');
+
+
+         return array('status'=>1,'msg'=>'验证成功');
 
     }
 
@@ -1474,9 +1476,8 @@ function sms_log($mobile,$code,$session_id){
 
 	   
 
-	   $sms_count = M('sms_log')->where("mobile = '{$mobile}' and add_time > {$s_time} and add_time < {$o_time}")->count();
+	   $sms_count = M('sms_log')->where("mobile = '{$mobile}' and status = 1 and add_time > {$s_time} and add_time < {$o_time}")->count();
 
-	   
 
 	   if($sms_count >=5){
 
@@ -1484,13 +1485,12 @@ function sms_log($mobile,$code,$session_id){
 
 	   }
 
-	   
 
 	   
 
 	    //判断是否存在验证码
 
-        $data = M('sms_log')->where(array('mobile'=>$mobile,'session_id'=>$session_id))->order('id DESC')->find();
+        $data = M('sms_log')->where(array('mobile'=>$mobile,'session_id' => $session_id))->order('id DESC')->find();
 
        
 
@@ -1500,54 +1500,72 @@ function sms_log($mobile,$code,$session_id){
 
         //秒以内不可重复发送
 
-        if($data && (time() - $data['add_time']) < $sms_time_out)
-
+        if($data && (time() - $data['add_time']) < $sms_time_out){
             return array('status'=>-1,'msg'=>$sms_time_out.'秒内不允许重复发送');
 
-        //$row = M('sms_log')->add(array('mobile'=>$mobile,'code'=>$code,'add_time'=>time(),'session_id'=>$session_id));
+        }
 
-       /* if(!$row){
 
-			return array('status'=>-1,'msg'=>'发送失败!!');
+        
+        $data = M('sms_log')->add([
+            'mobile' => $mobile,
+            'add_time' => time(),
+            'code' => $code,
+            'session_id' => $session_id
+        ]);
 
-		}*/
 
-        $sms_type=C('sms_type'); 
+       $id = M('sms_log')->where(array('mobile'=>$mobile))->getLastInsID();
 
-		
 
-		if($sms_type==1){
+//        $sms_type=C('sms_type');
 
-			 // $send = sendSMS($mobile,$code,$session_id);
-			 $send = juheSendSMS($mobile,$code,$session_id);
 
-				
 
-		}elseif($sms_type==2){
+//		if($sms_type==1){
+//
+//			  $send = sendSMS($mobile,$code,$session_id);
+//			 $send = juheSendSMS($mobile,$code,$session_id);
+//
+//
+//
+//		}elseif($sms_type==2){
+//
+//			// $send = sendSMS2($mobile,$code,$session_id);
+//			$send = juheSendSMS($mobile,$code,$session_id);
+//
+//		}else{
+//
+//			// $send = sendSMS($mobile,$code,$session_id);
+//			$send = juheSendSMS($mobile,$code,$session_id);
+//
+//		}
 
-			// $send = sendSMS2($mobile,$code,$session_id);	
-			$send = juheSendSMS($mobile,$code,$session_id);
+        if($data && $id){
+            $send = phone_send($mobile, $code);
 
-		}else{
 
-			// $send = sendSMS($mobile,$code,$session_id);
-			$send = juheSendSMS($mobile,$code,$session_id);
+            $res =json_decode($send, true);
 
-		} 
 
-		    
 
+            if($res != null && isset($res['count']) && $res['count'] == 1){
+
+                 M('sms_log')->where(array('mobile'=>$mobile,'id' => $id))->save(['status' => 1]);
+
+                return array('status'=>1,'msg'=>'语音短信发送成,请接收!');
+
+            }else{
+
+                $msg = isset($res['detail']) ? $res['detail'] : '发送失败，请稍后重试!';
+
+                return array('status'=>-1,'msg'=>$msg);
+
+            }
+        }else{
+            return array('status'=>-11,'msg'=>'发送失败了，请稍后重试!');
+        }
        
-
-        if(!$send){
-
-			 return array('status'=>-1,'msg'=>'发送失败!!');
-
-		}else{
-
-			 return array('status'=>1,'msg'=>'发送成功!!');
-
-		}
 
            
 
@@ -1555,7 +1573,46 @@ function sms_log($mobile,$code,$session_id){
 
 }
 
+/**
+ * 语音发送
+ * author gitxuzan
+ * @param $phone
+ * @param $code
+ */
+ function phone_send( $phone, $code )
+{
+    $curl = curl_init();
 
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://voice.yunpian.com/v2/voice/send.json",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "apikey=5a2fecfb72877ce0c25bfb4510c106de&mobile={$phone}&code={$code}",
+        CURLOPT_HTTPHEADER => array(
+            "Accept: application/json;charset=utf-8;",
+            "Content-Type: application/x-www-form-urlencoded",
+        ),
+    ));
+
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+
+    if ($err) {
+
+      
+        return json_encode(['detail' => '发送失败，请稍后发送']);
+    } else {
+        return $response;
+    }
+}
 
 
 
