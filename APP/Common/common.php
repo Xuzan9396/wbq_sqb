@@ -224,13 +224,13 @@ function reg_jl($user_id,$order){
 
 	$id =  $order;
 
-	//查询矿机信息
+	//查询鱼种信息
 
 	$data = $product -> find($id);
 
 	if(empty($data)){
 
-		return array('result'=>0,'msg'=>'矿机不存在');
+		return array('result'=>0,'msg'=>'鱼种不存在');
 
 		exit;
 
@@ -454,7 +454,7 @@ function mmtjrennumadd($parent_id,$l=1)
 
     M('member')->where(array('id' => $parent_id))->setInc('tdnum',1);//  gamecount  parentcount
 
-    // 是否升级送矿机
+    // 是否升级送鱼种
 
    	$a111 = M('member')->where(array('id' => $parent_id))->find();
 
@@ -510,7 +510,7 @@ function mmtjrennumadd($parent_id,$l=1)
 
 
 
-   	// 当前矿机升级条件
+   	// 当前鱼种升级条件
 
    	//$memberGroup = M('member_group')->where(array('level'=>$a111['level']))->find();
 
@@ -522,9 +522,9 @@ function mmtjrennumadd($parent_id,$l=1)
 
 		$ztj = array(
 
-			1=>array('taishu'=>1,'kj_id'=>2), //二星送小型矿机1台
+			1=>array('taishu'=>1,'kj_id'=>2), //二星送小型鱼种1台
 
-			2=>array('taishu'=>2,'kj_id'=>2), //三星送矿机2台
+			2=>array('taishu'=>2,'kj_id'=>2), //三星送鱼种2台
 
 			3=>array('taishu'=>1,'kj_id'=>4),
 
@@ -534,7 +534,7 @@ function mmtjrennumadd($parent_id,$l=1)
 
 			6=>array('taishu'=>3,'kj_id'=>4),
 
-			7=>array('taishu'=>1,'kj_id'=>5), //八星送大型矿机1台
+			7=>array('taishu'=>1,'kj_id'=>5), //八星送大型鱼种1台
 
 		);
 
@@ -592,7 +592,7 @@ function mmtjrennumadd($parent_id,$l=1)
 
 	
 
-   	// 满足条件送矿机
+   	// 满足条件送鱼种
 
    	if ($a111['tdnum'] >= $memberGroup['teamnum'] && $a111['ztnum'] >= $memberGroup['tjjnum']) 
 
@@ -630,7 +630,7 @@ function mmtjrennumadd($parent_id,$l=1)
 
    		{
 
-   			//查询矿机信息
+   			//查询鱼种信息
 
    			$data = M('product')->where(array('id'=>$memberGroup['item6']))->find();
 

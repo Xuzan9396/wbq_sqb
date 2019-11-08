@@ -224,13 +224,13 @@ function reg_jl($user_id,$order){
 
 	$id =  $order;
 
-	//查询矿机信息
+	//查询鱼种信息
 
 	$data = $product -> find($id);
 
 	if(empty($data)){
 
-		return array('result'=>0,'msg'=>'矿机不存在');
+		return array('result'=>0,'msg'=>'鱼种不存在');
 
 		exit;
 
@@ -454,15 +454,15 @@ function mmtjrennumadd($parent_id)
 
     M('member')->where(array('id' => $parent_id))->setInc('tdnum',1);//  gamecount  parentcount
 
-    // 是否升级送矿机
+    // 是否升级送鱼种
 
    	$a111 = M('member')->where(array('id' => $parent_id))->find();
 
-   	// 当前矿机升级条件
+   	// 当前鱼种升级条件
 
    	$memberGroup = M('member_group')->where(array('level'=>$a111['level']))->find();
 
-   	// 满足条件送矿机
+   	// 满足条件送鱼种
 
    	if ($a111['tdnum'] >= $memberGroup['teamnum'] && $a111['ztnum'] >= $memberGroup['tjjnum']) 
 
@@ -544,7 +544,7 @@ function mmtjrennumadd($parent_id)
 
    		{
 
-   			//查询矿机信息
+   			//查询鱼种信息
 
    			$data = M('product')->where(array('id'=>$memberGroup['item6']))->find();
 
