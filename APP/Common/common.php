@@ -1476,7 +1476,7 @@ function sms_log($mobile,$code,$session_id){
 
 	   
 
-	   $sms_count = M('sms_log')->where("mobile = '{$mobile}' and status = 1 and add_time > {$s_time} and add_time < {$o_time}")->count();
+	   $sms_count = M('sms_log')->where("mobile = '{$mobile}' and  add_time > {$s_time} and add_time < {$o_time}")->count();
 
 
 	   if($sms_count >=5){
