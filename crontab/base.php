@@ -32,7 +32,7 @@ class Base
             case 'test':
                 $mysql_conf = array(
                     'host'    => 'mysql',
-                    'db'      => 'test_sqb',
+                    'db'      => 'jlkc_db',
                     'db_user' => 'root',
                     'db_pwd'  => '27252725',
                 );
@@ -40,7 +40,7 @@ class Base
             case 'pro':
                 $mysql_conf = array(
                     'host'    => 'mysql',
-                    'db'      => 'sqb_db',
+                    'db'      => 'jlkc_db',
                     'db_user' => 'root',
                     'db_pwd'  => '27252725',
                 );
