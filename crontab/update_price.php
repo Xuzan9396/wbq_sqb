@@ -54,6 +54,18 @@ class UpdatePrice extends Base{
 
 
             if($date_time+86400 ==  $time ){
+
+                $config['draw_low_price'] = $config['draw_low_price'] + $everyday_rose;
+                $config['draw_high_price'] = $config['draw_high_price'] + $everyday_rose;
+
+
+                $dataArr = "<?php\r\nreturn " . var_export($config, true) . ";\r\n?>";
+
+
+                file_put_contents($path, $dataArr);
+
+
+
                 $cur_price = $everyday_rose + $res['price'];
                 $sql = "insert into ds_date (price,date) values ($cur_price, $time)";
                 $this->write($sql);
