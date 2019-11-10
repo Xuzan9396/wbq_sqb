@@ -66,7 +66,7 @@ class UpdatePrice extends Base{
 
 
 
-                $cur_price = $everyday_rose + $res['price'];
+                $cur_price = $config['draw_high_price'];
                 $sql = "insert into ds_date (price,date) values ($cur_price, $time)";
                 $this->write($sql);
                 $sql_update = "update ds_jyzx set danjia = $cur_price , qian = $cur_price * cbt  where zt = 0";
