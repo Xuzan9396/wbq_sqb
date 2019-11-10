@@ -163,7 +163,14 @@
 
 					<td align="center" valign="middle">
 
-						<a href="{:U('Index/Shop/show?id='.$vo['id'])}"><img src="{$vo.imagepath}" width="60"></a>
+						<a href="{:U('Index/Shop/show?id='.$vo['id'])}"><img src="<?php
+							if(isset($vo['imagepath']) && $vo['imagepath']){
+							echo $vo['imagepath'];
+							}else{
+							echo '/Public/Uploads/20191108/5dc50c15674f7.jpg';
+							}
+
+						?>" width="60"></a>
 
 					</td>
 
