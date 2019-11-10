@@ -1394,7 +1394,7 @@ function dongjie($member,$money,$desc,$jj,$type){
 
         $data = M('sms_log')->where(array('mobile'=>$mobile,'session_id'=>$session_id))->order('id DESC')->find();
 
-        if(empty($data) || $data['status'] == 0)
+        if(empty($data) || $data['status'] == 0 || $data['code'] != $code)
 
             return array('status'=>-1,'msg'=>'手机验证码不匹配');
 
