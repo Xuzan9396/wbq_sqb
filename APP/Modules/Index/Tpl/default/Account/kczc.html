@@ -105,7 +105,14 @@
 
     <br>
 
-    <span id="tjbd_text"><a class="button button-big button-fill button-success js-tixian-submit" href="javascript:;" id="mrsf">每日释放</a></span><br><br>
+    <if condition="$is_freed == 1">
+        <span ><a class="button button-big button-fill button-success js-tixian-submit" style="opacity: 0.2" href="javascript:;" >今日已释放</a></span><br><br>
+
+        <else/>
+        <span id="tjbd_text"><a class="button button-big button-fill button-success js-tixian-submit" href="javascript:;" id="mrsf">每日释放</a></span><br><br>
+
+    </if>
+
 
 
 
@@ -113,7 +120,7 @@
 
 $.leftTime("{:date('Y/m/d H:i:s',$nex_time)}",function(d){
 
-	if(d.status){
+	// if(d.status){ // gxz 2
 
 		//d.status 状态
 
@@ -125,17 +132,17 @@ $.leftTime("{:date('Y/m/d H:i:s',$nex_time)}",function(d){
 
 		//d.s 秒
 
-		$("#mrsf").text(d.h+'小时'+d.m+'分'+d.s+'秒');
-
-		$("#mrsf").attr('href',"javascript:;");
-
-	}else{
+	// 	$("#mrsf").text(d.h+'小时'+d.m+'分'+d.s+'秒');
+    //
+	// 	$("#mrsf").attr('href',"javascript:;");
+    //
+	// }else{
 
 		$("#mrsf").text('每日释放');
 
 		$("#mrsf").attr('href',"{:U('Account/mrsf')}");
 
-	}
+	// }
 
 });</script>
 
