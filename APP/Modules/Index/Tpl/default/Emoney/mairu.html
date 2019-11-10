@@ -282,11 +282,31 @@
 
                         <div class="item-inner">
 
+                            <div class="item-title label">指导价格($)</div>
+
+                            <div class="item-input">
+                                {$draw_low_price}$~{$draw_high_price}$
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li>
+
+                    <div class="item-content">
+
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+
+                        <div class="item-inner">
+
                             <div class="item-title label">单价</div>
 
                             <div class="item-input">
-
-                                <!--最低0.0000$,最高0.0000$--><!--指导价:0.0000$-0.0000$-->{$jiage}                            <!--<input id="dj" name="dj" type="text" value="" placeholder="单价:3.2900" style="font-size:16px;">-->
+                                                      <input id="dj" name="dj" type="text" value="" placeholder="请输入价格(最多两位小数)" style="font-size:16px;">
 
                             </div>
 
@@ -664,4 +684,27 @@ $.leftTime("{:date('Y/m/d H:i:s',$l['jydate']+7200)}",function(dd{$l.id}){
 
 
 
-</body></html>
+</body>
+<script>
+    document.getElementById('dj').onkeyup = function () {
+        changeNum(this);
+    }
+
+    function changeNum(obj) {
+        if (obj.value != '' && obj.value.substr(0, 1) == '.') {
+            obj.value = "";
+        }
+        obj.value = obj.value.replace(/^0*(0\.|[1-9])/, '$1');
+        obj.value = obj.value.replace(/[^\d.]/g, "");
+        obj.value = obj.value.replace(/\.{2,}/g, ".");
+        obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+        obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+        if (obj.value.indexOf(".") < 0 && obj.value != "") {
+            if (obj.value.substr(0, 1) == '0' && obj.value.length == 2) {
+                obj.value = obj.value.substr(1, obj.value.length);
+            }
+        }
+    }
+</script>
+
+</html>

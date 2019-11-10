@@ -74,4 +74,23 @@ class joke
         exit();
 
     }
+
+    public static function price(  )
+    {
+        $path = "../APP/Conf/system.php";
+        $config = include $path;
+
+        echo '<pre>';
+            var_dump($config['everyday_rose']);
+        echo '</pre>';
+        exit;
+
+        $everyday_rose = isset($config['everyday_rose']) ? floatval($config['everyday_rose']) : 0.01;
+        echo '<pre>';
+            var_dump($everyday_rose);
+        echo '</pre>';
+        exit;
+    }
 }
+
+joke::price();
