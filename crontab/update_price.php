@@ -88,10 +88,15 @@ class UpdatePrice extends Base{
 
     public function test(  )
     {
-        $sql = "select * from ds_jyzx limit 1";
-        $res = $this->read($sql);
+        $path = "../APP/Conf/system.php";
+        $config = include $path;
+
+
+        $everyday_rose = isset($config['everyday_rose']) ? floatval($config['everyday_rose']) : 0.01;
+        $config['draw_low_price'] = $config['draw_low_price'] + $everyday_rose;
+        $config['draw_high_price'] = $config['draw_high_price'] + $everyday_rose;
         echo '<pre>';
-            var_dump($res);
+            var_dump($config['draw_low_price'], $config['draw_high_price']);
         echo '</pre>';
         exit;
     }
