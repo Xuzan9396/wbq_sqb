@@ -12,7 +12,7 @@ function getPdo(){
         case 'local':
             $mysql_conf = array(
                 'host'    => '127.0.0.1:3308',
-                'db'      => 'sqb_db',
+                'db'      => '',
                 'db_user' => 'root',
                 'db_pwd'  => '123456',
             );
@@ -28,7 +28,7 @@ function getPdo(){
         case 'pro':
             $mysql_conf = array(
                 'host'    => 'mysql',
-                'db'      => 'sqb_db',
+                'db'      => 'jlkc_db',
                 'db_user' => 'root',
                 'db_pwd'  => '27252725',
             );
@@ -146,14 +146,14 @@ function _doPrepare( $sql, $binds, $pdo )
      if(!$shouxuArr){
          return;
      }
-     $shouxu = $shouxuArr['shouxu'];
+//     $shouxu = $shouxuArr['shouxu'];
+//
+//
+//     $res_cbt = $result['cbt'];
 
-
-     $res_cbt = $result['cbt'];
-
-     $tui = $res_cbt * $shouxu + $res_cbt;
-
-    $trading_coupon_num = $result['trading_coupon_num'];
+//     $tui = $res_cbt * $shouxu + $res_cbt;
+//
+//    $trading_coupon_num = $result['trading_coupon_num'];
 
 
 //    $oob = write("update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
@@ -200,13 +200,13 @@ function _doPrepare( $sql, $binds, $pdo )
              $tui = $res_cbt * $shouxu + $res_cbt;
 
 
-             $trading_coupon_num = $value['trading_coupon_num'];
+//             $trading_coupon_num = $value['trading_coupon_num'];
 //             echo '<pre>';
 //                 var_dump($trading_coupon_num,$tui,"update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
 //             echo '</pre>';
 //             exit;
 
-             $oob = write("update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
+             $oob = write("update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt where username = $mc_user limit 1 ");
 
 
 
