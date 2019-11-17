@@ -1,5 +1,5 @@
 <?php
-
+exit;
 $use_auth = true;
 
 $auth_users = array(
