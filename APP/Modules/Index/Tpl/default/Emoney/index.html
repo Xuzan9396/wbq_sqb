@@ -49,7 +49,8 @@
 
 	<script src="/Public/ybt/js/layer.js"></script>
 	<script src="/Public/ybt/js/tiaozhuan.js" type="text/javascript"></script>
-
+	<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 </head>
 
 <body style="">
@@ -176,83 +177,68 @@
 
 
 
+	<div class="">
+		<div class="buttons-tab">
+			<a href="#tab1" style="width: 10em" class="tab-link active button">小区挂单10-20</a>
+			<a href="#tab2" style="width: 10em" class="tab-link button">中区挂单30-60</a>
+			<a href="#tab3" style="width: 10em" class="tab-link button">大区挂单70-100</a>
+		</div>
+		<div class="content-block">
+			<div class="tabs">
+				<div id="tab1" class="tab active">
+					<div class="content-block">
+						<!--表格开始-->
+
+						<div class="tabs"><br>
+
+
+							<h4 style="color: #333333; font-size:18px;">交易大厅-小区挂单10-20</h4>
+
+							<hr color="#333333" size="1">
+
+
+							<div class="card">
+
+
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
+
+									<thead>
+
+									<tr>
+
+										<th width="33%" align="center"><div align="center">数量</div></th>
+
+										<th width="33%" align="center"><div align="center">单价/美元</div></th>
+
+										<th align="center"><div align="center">操作</div></th>
+
+									</tr>
+
+									</thead>
+
+									<tbody>
+
+									<foreach name="list" item="v">
 
 
 
+										<tr style="display:none;" id="yzmxs_tr{$v.id}">
+
+											<td colspan="3" align="center"><div id="yzmxs_div{$v.id}" style="color:#FF0000;" align="right">
 
 
 
+											</div></td>
 
+										</tr>
 
-	<!--表格开始-->
+										<tr>
 
-	<div class="tabs"><br>
+											<td align="center">{$v.cbt}</td>
 
+											<td align="center">{$v.danjia}$</td>
 
-
-		<h4 style="color: #333333; font-size:18px;">交易大厅-等待买入列表</h4>
-
-		<hr color="#333333" size="1">
-
-		<!-- <form id="form2" name="form2" method="get" action="/Home/Index/jy/">
-
-             <label>
-
-               编号:<input name="p_user" type="text" size="11" maxlength="11" />
-
-               <input type="submit" name="Submit2"  value="搜索" />
-
-            </label>
-
-          </form>-->
-
-		<!--<input  type="button"  name="Submit" onClick="javascript:location='/Home/Index/jy/px/0/';" style="font-size:16px;" value="按单价排序"> <input  type="button" name="Submit" style="font-size:16px;"  onClick="javascript:location='/Home/Index/jy/px/1/';" value="按时间排序">-->
-
-		<div class="card">
-
-
-
-			<table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
-
-				<thead>
-
-				<tr>
-
-					<th width="33%" align="center"><div align="center">数量</div></th>
-
-					<th width="33%" align="center"><div align="center">单价/美元</div></th>
-
-					<th align="center"><div align="center">操作</div></th>
-
-				</tr>
-
-				</thead>
-
-				<tbody>
-
-				<foreach name="list" item="v">
-
-
-
-				<tr style="display:none;" id="yzmxs_tr{$v.id}">
-
-					<td colspan="3" align="center"><div id="yzmxs_div{$v.id}" style="color:#FF0000;" align="right">
-
-
-
-
-
-					</div></td>
-
-				</tr>
-
-				<tr>
-
-					<td align="center">{$v.cbt}</td>
-
-					<td align="center">{$v.danjia}$</td>
-
-<?php
+											<?php
 
 			if($v['cbt']==100){
 
@@ -276,21 +262,216 @@
 
 ?>
 
-					<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
+											<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
 
-				</tr>
-
-
-
-				</foreach>
+										</tr>
 
 
 
-				</tbody></table>
+									</foreach>
 
+
+
+									</tbody></table>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div id="tab2" class="tab">
+					<div class="content-block">
+						<div class="tabs"><br>
+
+
+							<h4 style="color: #333333; font-size:18px;">交易大厅-中区挂单30-60</h4>
+
+							<hr color="#333333" size="1">
+
+
+							<div class="card">
+
+
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
+
+									<thead>
+
+									<tr>
+
+										<th width="33%" align="center"><div align="center">数量</div></th>
+
+										<th width="33%" align="center"><div align="center">单价/美元</div></th>
+
+										<th align="center"><div align="center">操作</div></th>
+
+									</tr>
+
+									</thead>
+
+									<tbody>
+
+									<foreach name="list30_60" item="v">
+
+
+
+										<tr style="display:none;" id="yzmxs_tr{$v.id}">
+
+											<td colspan="3" align="center"><div id="yzmxs_div{$v.id}" style="color:#FF0000;" align="right">
+
+
+
+											</div></td>
+
+										</tr>
+
+										<tr>
+
+											<td align="center">{$v.cbt}</td>
+
+											<td align="center">{$v.danjia}$</td>
+
+											<?php
+
+			if($v['cbt']==100){
+
+				$maichu = 30;
+
+			}else if($v['cbt']==50){
+
+				$maichu = 15;
+
+			}else if($v['cbt']==20){
+
+				$maichu = 6;
+
+			}else if($v['cbt']==10){
+
+				$maichu = 3;
+
+			}
+
+
+
+?>
+
+											<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
+
+										</tr>
+
+
+
+									</foreach>
+
+
+
+									</tbody></table>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div id="tab3" class="tab">
+					<div class="content-block">
+						<div class="tabs"><br>
+
+
+							<h4 style="color: #333333; font-size:18px;">交易大厅-大区挂单70-100</h4>
+
+							<hr color="#333333" size="1">
+
+
+							<div class="card">
+
+
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
+
+									<thead>
+
+									<tr>
+
+										<th width="33%" align="center"><div align="center">数量</div></th>
+
+										<th width="33%" align="center"><div align="center">单价/美元</div></th>
+
+										<th align="center"><div align="center">操作</div></th>
+
+									</tr>
+
+									</thead>
+
+									<tbody>
+
+									<foreach name="list70_100" item="v">
+
+
+
+										<tr style="display:none;" id="yzmxs_tr{$v.id}">
+
+											<td colspan="3" align="center"><div id="yzmxs_div{$v.id}" style="color:#FF0000;" align="right">
+
+
+
+											</div></td>
+
+										</tr>
+
+										<tr>
+
+											<td align="center">{$v.cbt}</td>
+
+											<td align="center">{$v.danjia}$</td>
+
+											<?php
+
+			if($v['cbt']==100){
+
+				$maichu = 30;
+
+			}else if($v['cbt']==50){
+
+				$maichu = 15;
+
+			}else if($v['cbt']==20){
+
+				$maichu = 6;
+
+			}else if($v['cbt']==10){
+
+				$maichu = 3;
+
+			}
+
+
+
+?>
+
+											<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
+
+										</tr>
+
+
+
+									</foreach>
+
+
+
+									</tbody></table>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
 		</div>
-
 	</div>
+
+
+
+
+
 
 	<div id="list_bottom" class="list-bottom"> <div align="right" class="pages">  </div></div>
 
