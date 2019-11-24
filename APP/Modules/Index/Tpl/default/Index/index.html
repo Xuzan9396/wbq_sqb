@@ -63,9 +63,9 @@
 
 			<i class="iconfont icon-shouye"></i><span>首页</span></a></div>
 
-		<div class="foot-menu"><a href="{:U('Index/Shop/orderlist')}">
+		<!--<div class="foot-menu"><a href="{:U('Index/Shop/orderlist')}">-->
 
-			<i class="iconfont icon-wxbmingxingdianpu"></i><span>我的矿机</span></a></div>
+			<!--<i class="iconfont icon-wxbmingxingdianpu"></i><span>我的矿机</span></a></div>-->
 
 		<div class="foot-menu"><a href="{:U('Index/Account/myAccount')}">
 
@@ -75,7 +75,7 @@
 
 			<i class="iconfont icon-wxbdingwei"></i><span>交易平台</span></a></div>
 
-		<div class="foot-menu"><a href="/">
+		<div class="foot-menu"><a href="{:U('Index/Index/index')}">
 
 			<i class="iconfont icon-geren"></i><span>会员中心</span></a></div>
 
@@ -106,63 +106,78 @@
 
 		<div class="my-qiandao" style="width:100%;">
 
-			<div class="row-box clearfix"><a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$minfo.ksye|two_number=###}</span>
+			<div class="row-box clearfix">
+				<a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$minfo.ksye|two_number=###}</span>
+					<p class="subtitle">可售余额</p>
 
-				<p class="subtitle">可售余额</p>
+				</a>
+				<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.kczc|two_number=###}</span>
+					<p class="subtitle">矿池资产</p>
+				</a>
 
-			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.ksed|two_number=###}</span>
+				<a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$jytj11|two_number=###}</span>
+					<p class="subtitle">交易冻结</p>
+				</a>
+				<!--<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.ksed|two_number=###}</span>-->
 
-				<p class="subtitle">可售额度</p>
+				<!--<p class="subtitle">可售额度</p>-->
 
-			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$ljmrl}</span>
+				<!--</a>-->
+				<!--<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$ljmrl}</span>-->
 
-				<p class="subtitle">累计买量</p>
+				<!--<p class="subtitle">累计买量</p>-->
 
-			</a></div>
-
-		</div>
-
-		<div class="my-qiandao" style="width:100%; background:#0e696d">
-
-			<div class="row-box clearfix"><a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$jytj11|two_number=###}</span>
-
-				<p class="subtitle">交易冻结</p>
-
-			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$ljcl|two_number=###}</span>
-
-				<p class="subtitle">总收益</p>
-
-			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$yxkj}台</span>
-
-				<p class="subtitle">有效矿机</p>
-
-			</a></div>
+				<!--</a>-->
+			</div>
 
 		</div>
 
-		<div class="my-qiandao" style="width:100%; background:#0e696d">
+		<!--<div class="my-qiandao" style="width:100%; background:#0e696d">-->
 
-			<div class="row-box clearfix"><a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$minfo.jinbi|two_number=###}</span>
+			<!--<div class="row-box clearfix">-->
+			<!--<a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$jytj11|two_number=###}</span>-->
 
-				<p class="subtitle">矿池钱包</p>
+				<!--<p class="subtitle">交易冻结</p>-->
 
-			</a><a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.kczc|two_number=###}</span>
+			<!--</a>-->
+			<!--<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$ljcl|two_number=###}</span>-->
 
-				<p class="subtitle">矿池资产</p>
+				<!--<p class="subtitle">总收益</p>-->
 
-			</a>
+			<!--</a>-->
+			<!--<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$yxkj}台</span>-->
+
+				<!--<p class="subtitle">有效矿机</p>-->
+
+			<!--</a>-->
+			<!--</div>-->
+
+		<!--</div>-->
+
+		<!--<div class="my-qiandao" style="width:100%; background:#0e696d">-->
+
+			<!--<div class="row-box clearfix">-->
+			<!--<a class="col-xs-3 sub-tab" style="border:0px;"><span class="num_qiandao">{$minfo.jinbi|two_number=###}</span>-->
+				<!--<p class="subtitle">矿池钱包</p>-->
+
+			<!--</a>-->
+			<!--<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.kczc|two_number=###}</span>-->
+
+				<!--<p class="subtitle">矿池资产</p>-->
+
+			<!--</a>-->
 				<!--<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.teamgonglv}</span>-->
 				<!--<p class="subtitle">团队算力</p>-->
 			<!--</a>-->
 
-				<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.ed_bank}</span>
+				<!--<a class="col-xs-3 sub-tab"><span class="num_qiandao">{$minfo.ed_bank}</span>-->
 
-					<p class="subtitle">额度银行</p>
+					<!--<p class="subtitle">额度银行</p>-->
 
-				</a>
-			</div>
+				<!--</a>-->
+			<!--</div>-->
 
-		</div>
+		<!--</div>-->
 
 
 
@@ -180,7 +195,8 @@
 
 				<li><a href="{:U('Index/Shop/qiandao')}"><img src="/Public/ybt/image/info-jsbz.png"><span>我要签到</span></a></li>
 
-				<li><a href="{:U('Account/dhgl')}"><img src="/Public/ybt/image/info-zhuan.png"><span>兑换管理</span></a></li>
+				<!--<li><a href="{:U('Account/dhgl')}"><img src="/Public/ybt/image/info-zhuan.png"><span>兑换管理</span></a></li>-->
+				<li><a href="{:U('Account/line_service')}"><img src="/Public/ybt/image/info-zhuan.png"><span>在线客服</span></a></li>
 
 				<li><a href="{:U('Account/kczc')}"><img src="/Public/ybt/image/info-jsbz.png"><span>矿池资产</span></a></li>
 
@@ -198,13 +214,31 @@
 
 				<li><a href="{:U('Account/shoukuanma')}"><img src="/Public/ybt/image/info-update.png"><span>实名认证</span></a></li>
 
+				<li>
+					<if condition='$minfo["is_get"] eq 1'>
+
+				<a href="javascript:;" style="color: red"><img src="/Public/ybt/image/info-pass.png"><span>已激活</span></a>
+
+
+						<else/>
+				<a href="javascript:;" style="color: red"><img src="/Public/ybt/image/info-pass.png"><span>未激活</span></a>
+
+
+						<!--<a onclick="if(confirm('确认要激活吗？')==false)return false;" href="{:U(GROUP_NAME .'/Member/activate',array('id'=>$v['id']))}">未激活，点击激活</a>-->
+
+
+					</if>
+				</li>
+
+
 				<li><a href="{:U('Account/grzl')}"><img src="/Public/ybt/image/info-pass.png"><span>个人资料</span></a></li>
 
 
 
-				<li><a href="{:U('Account/sqjl')}"><img src="/Public/ybt/image/info-tuandui.png"><span>社群奖励</span></a></li>
+				<!--<li><a href="{:U('Account/sqjl')}"><img src="/Public/ybt/image/info-tuandui.png"><span>社群奖励</span></a></li>-->
+				<li><a href="{:U('Account/tgm')}"><img src="/Public/ybt/image/info-tuandui.png"><span>推广二维码</span></a></li>
 
-				<li><a href="{:U('Index/new/news')}"><img src="/Public/ybt/image/info-out.png"><span>系统消息</span></a></li>
+				<li><a href="{:U('Index/new/news')}"><img src="/Public/ybt/image/info-out.png"><span>系统公告</span></a></li>
 
 
 
@@ -214,7 +248,7 @@
 
 
 
-			<iframe src="{:U('Index/Account/resource')}" id="iframepage" name="iframepage" frameborder="0" marginheight="0" marginwidth="0" width="100%" onload="iFrameHeight()" height="340"></iframe>
+			<!--<iframe src="{:U('Index/Account/resource')}" id="iframepage" name="iframepage" frameborder="0" marginheight="0" marginwidth="0" width="100%" onload="iFrameHeight()" height="340"></iframe>-->
 
 			<script type="text/javascript" language="javascript">
 

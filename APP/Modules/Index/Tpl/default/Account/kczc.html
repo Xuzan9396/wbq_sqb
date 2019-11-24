@@ -77,9 +77,9 @@
 
         <i class="iconfont icon-shouye"></i><span>首页</span></a></div>
 
-    <div class="foot-menu"><a href="{:U('Index/Shop/orderlist')}">
+    <!--<div class="foot-menu"><a href="{:U('Index/Shop/orderlist')}">-->
 
-        <i class="iconfont icon-wxbmingxingdianpu"></i><span>我的矿机</span></a></div>
+        <!--<i class="iconfont icon-wxbmingxingdianpu"></i><span>我的矿机</span></a></div>-->
 
     <div class="foot-menu"><a href="{:U('Index/Account/myAccount')}">
 
@@ -89,7 +89,7 @@
 
         <i class="iconfont icon-wxbdingwei"></i><span>交易平台</span></a></div>
 
-    <div class="foot-menu"><a href="/">
+    <div class="foot-menu"><a href="{:U('Index/Index/index')}">
 
         <i class="iconfont icon-geren"></i><span>会员中心</span></a></div>
 
@@ -105,7 +105,14 @@
 
     <br>
 
-    <span id="tjbd_text"><a class="button button-big button-fill button-success js-tixian-submit" href="javascript:;" id="mrsf">每日释放</a></span><br><br>
+    <if condition="$is_freed == 1">
+        <span ><a class="button button-big button-fill button-success js-tixian-submit" style="opacity: 0.2" href="javascript:;" >今日已释放</a></span><br><br>
+
+        <else/>
+        <span id="tjbd_text"><a class="button button-big button-fill button-success js-tixian-submit" href="javascript:;" id="mrsf">每日释放</a></span><br><br>
+
+    </if>
+
 
 
 
@@ -113,7 +120,7 @@
 
 $.leftTime("{:date('Y/m/d H:i:s',$nex_time)}",function(d){
 
-	if(d.status){
+	// if(d.status){ // gxz 2
 
 		//d.status 状态
 
@@ -125,129 +132,129 @@ $.leftTime("{:date('Y/m/d H:i:s',$nex_time)}",function(d){
 
 		//d.s 秒
 
-		$("#mrsf").text(d.h+'小时'+d.m+'分'+d.s+'秒');
-
-		$("#mrsf").attr('href',"javascript:;");
-
-	}else{
+	// 	$("#mrsf").text(d.h+'小时'+d.m+'分'+d.s+'秒');
+    //
+	// 	$("#mrsf").attr('href',"javascript:;");
+    //
+	// }else{
 
 		$("#mrsf").text('每日释放');
 
 		$("#mrsf").attr('href',"{:U('Account/mrsf')}");
 
-	}
+	// }
 
 });</script>
 
 
 
-    <h4 style="color: #333333; font-size:18px;">购买矿池资产</h4>
+    <!--<h4 style="color: #333333; font-size:18px;">购买矿池资产</h4>-->
 
-    <hr color="#333333" size="1">
+    <!--<hr color="#333333" size="1">-->
 
-    <div class="list-block">
+    <!--<div class="list-block">-->
 
-        <form class="cmxform form-horizontal tasi-form" name="form1" id="form1" method="post" action="{:U('Account/kcpost')}">
+        <!--<form class="cmxform form-horizontal tasi-form" name="form1" id="form1" method="post" action="{:U('Account/kcpost')}">-->
 
-            <ul>
-
-
-
-                <li>
-
-                    <div class="item-content">
-
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-
-                        <div class="item-inner">
-
-                            <div class="item-title label">矿池钱包余额</div>
-
-                            <div class="item-input">
-
-                                {$jinbi.jinbi|four_number=###}枚
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </li>
+            <!--<ul>-->
 
 
+
+                <!--<li>-->
+
+                    <!--<div class="item-content">-->
+
+                        <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+
+                        <!--<div class="item-inner">-->
+
+                            <!--<div class="item-title label">矿池钱包余额</div>-->
+
+                            <!--<div class="item-input">-->
+
+                                <!--{$jinbi.jinbi|four_number=###}枚-->
+
+                            <!--</div>-->
+
+                        <!--</div>-->
+
+                    <!--</div>-->
+
+                <!--</li>-->
 
 
 
 
 
-                <li>
-
-                    <div class="item-content">
-
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-
-                        <div class="item-inner">
-
-                            <div class="item-title label">存入数量</div>
-
-                            <div class="item-input">
-
-                                <input type="text" name="amount" id="amount" style="font-size:12px;" placeholder="1矿池钱包={$kcdh}矿池资产" value="">
 
 
+                <!--<li>-->
 
-                            </div>
+                    <!--<div class="item-content">-->
 
-                        </div>
+                        <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
 
-                    </div>
+                        <!--<div class="item-inner">-->
 
-                </li>
+                            <!--<div class="item-title label">存入数量</div>-->
 
-                <li>
+                            <!--<div class="item-input">-->
 
-                    <div class="item-content">
-
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-
-                        <div class="item-inner">
-
-                            <div class="item-title label">二级密码</div>
-
-                            <div class="item-input">
-
-                                <input class="col-20" type="password" placeholder="请输入二级密码" name="ejmm" value="">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </li>
+                                <!--<input type="text" name="amount" id="amount" style="font-size:12px;" placeholder="1矿池钱包={$kcdh}矿池资产" value="">-->
 
 
 
-            </ul>
+                            <!--</div>-->
 
-        </form>
+                        <!--</div>-->
 
-    </div>
+                    <!--</div>-->
 
-    <div class="content-block">
+                <!--</li>-->
 
-        <div class="row">
+                <!--<li>-->
+
+                    <!--<div class="item-content">-->
+
+                        <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+
+                        <!--<div class="item-inner">-->
+
+                            <!--<div class="item-title label">二级密码</div>-->
+
+                            <!--<div class="item-input">-->
+
+                                <!--<input class="col-20" type="password" placeholder="请输入二级密码" name="ejmm" value="">-->
+
+                            <!--</div>-->
+
+                        <!--</div>-->
+
+                    <!--</div>-->
+
+                <!--</li>-->
 
 
 
-            <div class="col-50"><a onclick="document.getElementById('form1').submit();" id="submit" class="button button-big button-fill button-success js-tixian-submit">确认存入</a></div>
+            <!--</ul>-->
 
-            <div class="col-50"><a href="{:U('Account/kczc')}" class="button button-big button-fill button-dark">取消</a></div>
+        <!--</form>-->
 
-        </div>
+    <!--</div>-->
 
-    </div>
+    <!--<div class="content-block">-->
+
+        <!--<div class="row">-->
+
+
+
+            <!--<div class="col-50"><a onclick="document.getElementById('form1').submit();" id="submit" class="button button-big button-fill button-success js-tixian-submit">确认存入</a></div>-->
+
+            <!--<div class="col-50"><a href="{:U('Account/kczc')}" class="button button-big button-fill button-dark">取消</a></div>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
 
 
 
