@@ -214,6 +214,23 @@
 
 				<li><a href="{:U('Account/shoukuanma')}"><img src="/Public/ybt/image/info-update.png"><span>实名认证</span></a></li>
 
+				<li>
+					<if condition='$minfo["is_get"] eq 1'>
+
+				<a href="javascript:;" style="color: red"><img src="/Public/ybt/image/info-pass.png"><span>已激活</span></a>
+
+
+						<else/>
+				<a href="javascript:;" style="color: red"><img src="/Public/ybt/image/info-pass.png"><span>未激活</span></a>
+
+
+						<!--<a onclick="if(confirm('确认要激活吗？')==false)return false;" href="{:U(GROUP_NAME .'/Member/activate',array('id'=>$v['id']))}">未激活，点击激活</a>-->
+
+
+					</if>
+				</li>
+
+
 				<li><a href="{:U('Account/grzl')}"><img src="/Public/ybt/image/info-pass.png"><span>个人资料</span></a></li>
 
 
@@ -231,7 +248,7 @@
 
 
 
-			<iframe src="{:U('Index/Account/resource')}" id="iframepage" name="iframepage" frameborder="0" marginheight="0" marginwidth="0" width="100%" onload="iFrameHeight()" height="340"></iframe>
+			<!--<iframe src="{:U('Index/Account/resource')}" id="iframepage" name="iframepage" frameborder="0" marginheight="0" marginwidth="0" width="100%" onload="iFrameHeight()" height="340"></iframe>-->
 
 			<script type="text/javascript" language="javascript">
 
