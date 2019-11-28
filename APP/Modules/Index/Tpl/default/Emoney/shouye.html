@@ -46,7 +46,10 @@
 	<link rel="stylesheet" href="/Public/ybt/css/order.css">
 
 	<!-- 变量声明  -->
-
+	<!--<link rel="stylesheet" href="/Public/new_kc/kc_home/swiper.min.css">-->
+	<!--<script src="/Public/new_kc/kc_home/rem_config.js"></script>-->
+	<link rel="stylesheet" href="/Public/new_kc/kc_home/basic.css">
+	<link rel="stylesheet" href="/Public/new_kc/kc_home/index.css">
 
 
 	<link rel="stylesheet" href="/Public/ybt/sy/css/style.css">
@@ -58,13 +61,14 @@
 
 </head>
 
+
 <body style="">
 
 <!--弹出公告-->
 
 <!--弹出公告-->
 
-<div class="page">
+<div class="page mach_layout" >
 
 
 
@@ -82,29 +86,7 @@
 
 	</header>
 
-	<!--<nav class="foot-bar">-->
 
-		<!--<div class="foot-menu"><a href="{:U('Index/Emoney/shouye')}">-->
-
-			<!--<i class="iconfont icon-shouye"></i><span>首页</span></a></div>-->
-
-		<!--&lt;!&ndash;<div class="foot-menu"><a href="{:U('Index/Shop/orderlist')}">&ndash;&gt;-->
-
-			<!--&lt;!&ndash;<i class="iconfont icon-wxbmingxingdianpu"></i><span>我的矿机</span></a></div>&ndash;&gt;-->
-
-		<!--<div class="foot-menu"><a href="{:U('Index/Account/myAccount')}">-->
-
-			<!--<i class="iconfont icon-gouwuche"></i><span>我的团队</span></a></div>-->
-
-		<!--<div class="foot-menu"><a href="{:U('Index/Emoney/index')}">-->
-
-			<!--<i class="iconfont icon-wxbdingwei"></i><span>交易平台</span></a></div>-->
-
-		<!--<div class="foot-menu"><a href="{:U('Index/Index/index')}">-->
-
-			<!--<i class="iconfont icon-geren"></i><span>会员中心</span></a></div>-->
-
-	<!--</nav>-->
 	<include file="Public:pub" />
 
 
@@ -143,28 +125,57 @@
 
 
 
-		<div class="row" style="margin-left:0px;">
+		<!--<div class="row" style="margin-left:0px;">-->
 
-			<div class="main_menu_bg"><a href="{:U('Index/Shop/qiandao')}"><img src="/Public/ybt/image/hot.png"><span>我要签到</span></a>
+			<!--<div class="main_menu_bg"><a href="{:U('Index/Shop/qiandao')}"><img src="/Public/new_kc/kc_home/01.png"><span>我要签到</span></a>-->
 
-			</div>
+			<!--</div>-->
 
-			<div class="main_menu_bg"><a href="{:U('Index/new/news')}"><img src="/Public/ybt/image/duihuan.png"><span>新闻公告</span></a>
+			<!--<div class="main_menu_bg"><a href="{:U('Index/new/news')}"><img src="/Public/ybt/image/duihuan.png"><span>新闻公告</span></a>-->
 
-			</div>
+			<!--</div>-->
 
 
 
-			<div class="main_menu_bg"><a href="{:U('Account/tgm')}"><img src="/Public/ybt/image/qiandao.png"><span>推广二维码</span></a>
+			<!--<div class="main_menu_bg"><a href="{:U('Account/tgm')}"><img src="/Public/ybt/image/qiandao.png"><span>推广二维码</span></a>-->
 
-			</div>
+			<!--</div>-->
 
-			<div class="main_menu_bg"><a href="{:U('Account/line_service')}"><img src="/Public/ybt/image/dingdan.png"><span>在线客服</span></a>
+			<!--<div class="main_menu_bg"><a href="{:U('Account/line_service')}"><img src="/Public/ybt/image/dingdan.png"><span>在线客服</span></a>-->
 
-			</div>
+			<!--</div>-->
 
-		</div>
+		<!--</div>-->
 
+
+		<!--main-->
+		<main>
+			<section class="commend mach_product">
+				<div class="mach_product_top">
+					<h4 class="title" style="color: #fff">众利</h4>
+				</div>
+				<div class="commend_content">
+					<ul class="clearfix list">
+						<li>
+							<a href="javascript:;">
+								<img src="/Public/new_kc/kc_home/01.png" alt="">
+							</a>
+							<div class="commend_text">
+								<p>
+									<a href="javascript:;">签到</a>
+									<!--<span>释放矿池资产</span>-->
+								</p>
+								<div class="price clearfix">
+									<span>释放矿池资产</span>
+									<a href="#" class="button" style="color: #fff;background-color: #0a8ddf">立即签到 </a>
+								</div>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</section>
+		</main>
 
 		<iframe src="{:U('Index/Account/columnar')}" id="iframepage" name="iframepage" frameborder="0" marginheight="0" marginwidth="0" width="100%" onload="iFrameHeight()" height="340"></iframe>
 
