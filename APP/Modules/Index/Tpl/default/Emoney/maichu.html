@@ -220,15 +220,15 @@
 
     <div class="buttons-tab">
 
-        <a href="{:U('Index/Emoney/index')}" class="button">交易大厅</a>
+        <a href="{:U('Index/Emoney/index')}" style="background: #23264f;color: white" class="button">交易大厅</a>
 
-        <a href="{:U('Index/Emoney/mairu')}" class="button">买入IOX
+        <a href="{:U('Index/Emoney/mairu')}" style="background: #23264f;color: white" class="button">买入IOX
 </a>
 
-        <a href="{:U('Index/Emoney/maichu')}" class="active button">卖出IOX
+        <a href="{:U('Index/Emoney/maichu')}" style="background: #23264f;color: white" class="active button">卖出IOX
 </a>
 
-        <a href="{:U('Index/Emoney/deal_log')}" class=" button">交易记录 </a>
+        <a href="{:U('Index/Emoney/deal_log')}" style="background: #23264f;color: white" class=" button">交易记录 </a>
 
 
     </div>
@@ -275,7 +275,7 @@
 
                 </thead>
 
-                <tbody>
+                <tbody style="background: #31356e;color: white ">
 
                 <foreach name="list" item="v">
 
@@ -387,11 +387,11 @@ $.leftTime("{:date('Y/m/d H:i:s',$v['date']+7200)}",function(d{$v.id}){
 
 
 
-                    <tbody>
+                    <tbody style="background: #31356e;color: white ">
 
                     <tr>
 
-                        <th colspan="4" bgcolor="#CCCCCC">
+                        <th colspan="4"  bgcolor="#00AAFF">
 
 
 
@@ -507,7 +507,7 @@ $.leftTime("{:date('Y/m/d H:i:s',$l['date']+7200)}",function(dd{$l.id}){
 
 
 
-                            <td><a class="button button-fill button-warning" href="{:U('Emoney/mcwc',array('id'=>$l['id']))}"  style="width:80px;font-size:16px;align:center;" >完成交易</a></td>
+                            <td><a class="button button-fill button-warning" href="{:U('Emoney/mcwc',array('id'=>$l['id']))}"  style="width:80px;font-size:16px;align:center;background: #00AAFF" >完成交易</a></td>
 
                         </tr>
 

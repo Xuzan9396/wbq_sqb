@@ -174,13 +174,13 @@
 
 	<div class="buttons-tab">
 
-		<a href="{:U('Index/Emoney/index')}" class="active button">交易大厅</a>
+		<a href="{:U('Index/Emoney/index')}" style="background: #23264f;color: white"  class="active button">交易大厅</a>
 
-		<a href="{:U('Index/Emoney/mairu')}" class=" button">买入IOX
+		<a href="{:U('Index/Emoney/mairu')}" style="background: #23264f;color: white" class=" button">买入IOX
 </a>
 
-		<a href="{:U('Index/Emoney/maichu')}" class=" button">卖出IOX </a>
-		<a href="{:U('Index/Emoney/deal_log')}" class=" button">交易记录 </a>
+		<a href="{:U('Index/Emoney/maichu')}" style="background: #23264f;color: white" class=" button">卖出IOX </a>
+		<a href="{:U('Index/Emoney/deal_log')}" style="background: #23264f;color: white" class=" button">交易记录 </a>
 
 
 
@@ -190,11 +190,11 @@
 
 
 
-	<div class="">
-		<div class="buttons-tab">
-			<a href="#tab1" style="width: 10em" class="tab-link active button">小区挂单10-20</a>
-			<a href="#tab2" style="width: 10em" class="tab-link button">中区挂单50-60</a>
-			<a href="#tab3" style="width: 10em" class="tab-link button">大区挂单90-100</a>
+	<div class="" >
+		<div class="buttons-tab" style="background: #31356e; ">
+			<a href="#tab1" style="width: 10em;color: white" class="tab-link active button" >小区挂单10-20</a>
+			<a href="#tab2" style="width: 10em;color: white" class="tab-link button">中区挂单50-60</a>
+			<a href="#tab3" style="width: 10em;color: white" class="tab-link button">大区挂单90-100</a>
 		</div>
 		<div class="content-block">
 			<div class="tabs">
@@ -234,7 +234,7 @@
 
 									</thead>
 
-									<tbody>
+									<tbody style="background: #31356e;color: white ">
 
 									<foreach name="list" item="v">
 
@@ -258,29 +258,17 @@
 
 											<?php
 
-			if($v['cbt']==100){
 
-				$maichu = 30;
 
-			}else if($v['cbt']==50){
+		$maichu = $v['cbt']*0.3;
 
-				$maichu = 15;
 
-			}else if($v['cbt']==20){
-
-				$maichu = 6;
-
-			}else if($v['cbt']==10){
-
-				$maichu = 3;
-
-			}
 
 
 
 ?>
 
-											<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
+											<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;background: #00AAFF" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
 
 										</tr>
 
@@ -333,7 +321,7 @@
 
 									</thead>
 
-									<tbody>
+									<tbody style="background: #31356e;color: white ">
 
 									<foreach name="list30_60" item="v">
 
@@ -357,29 +345,14 @@
 
 											<?php
 
-			if($v['cbt']==100){
+			$maichu = $v['cbt']*0.3;
 
-				$maichu = 30;
-
-			}else if($v['cbt']==50){
-
-				$maichu = 15;
-
-			}else if($v['cbt']==20){
-
-				$maichu = 6;
-
-			}else if($v['cbt']==10){
-
-				$maichu = 3;
-
-			}
 
 
 
 ?>
 
-											<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
+											<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;background: #00AAFF" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
 
 										</tr>
 
@@ -434,7 +407,7 @@
 
 									</thead>
 
-									<tbody>
+									<tbody style="background: #31356e;color: white ">
 
 									<foreach name="list70_100" item="v">
 
@@ -458,29 +431,14 @@
 
 											<?php
 
-			if($v['cbt']==100){
+		$maichu = $v['cbt']*0.3;
 
-				$maichu = 30;
-
-			}else if($v['cbt']==50){
-
-				$maichu = 15;
-
-			}else if($v['cbt']==20){
-
-				$maichu = 6;
-
-			}else if($v['cbt']==10){
-
-				$maichu = 3;
-
-			}
 
 
 
 ?>
 
-											<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
+											<td align="center"><input type="button" class="button button-fill button-warning" style="width:80px;font-size:16px;background: #00AAFF" name="Submit" onclick="javascript:if(confirm('本次出售{$v.cbt}个可售余额,可收{$v['cbt']*$v['danjia']}美元,需要{$maichu}手续费出售{$v.cbt},扣除{$v['coupon_num']}张券,确售吗?'))cs_cl3('{$v.id}');" value="卖给TA"></td>
 
 										</tr>
 
