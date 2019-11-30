@@ -152,7 +152,7 @@
 		<main>
 			<section class="commend mach_product">
 				<div class="mach_product_top">
-					<h4 class="title" style="color: #fff">众利</h4>
+					<!--<h4 class="title" style="color: #fff">众利</h4>-->
 				</div>
 				<div class="commend_content">
 					<ul class="clearfix list">
@@ -165,9 +165,23 @@
 									<a href="javascript:;">签到</a>
 									<!--<span>释放矿池资产</span>-->
 								</p>
+								<!--<if condition="$is_freed == 1">-->
+									<!--<span ><a class="button button-big button-fill button-success js-tixian-submit" style="opacity: 0.2" href="javascript:;" >今日已释放</a></span><br><br>-->
+
+									<!--<else/>-->
+									<!--<span id="tjbd_text"><a class="button button-big button-fill button-success js-tixian-submit" href="javascript:;" id="mrsf">每日释放</a></span><br><br>-->
+
+								<!--</if>-->
 								<div class="price clearfix">
 									<span>释放矿池资产</span>
-									<a href="#" class="button" style="color: #fff;background-color: #0a8ddf">立即签到 </a>
+									<if condition="$is_freed == 1">
+										<a href="javascript:return false;" class="button" style="color: #fff;background-color: #778899;padding: 0px 10px" >今日已签到 </a>
+
+										<else/>
+										<a href="{:U('Account/mrsf')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px">立即签到 </a>
+
+
+									</if>
 								</div>
 							</div>
 						</li>
@@ -179,12 +193,12 @@
 							</a>
 							<div class="commend_text">
 								<p>
-									<a href="javascript:;">矿池</a>
-									<span>释放矿池资产</span>
+									<a href="javascript:;">矿池资产</a>
+									<span>{$minfo.kczc|two_number=###}</span>
 								</p>
 								<div class="price clearfix">
 									<span>矿池资产</span>
-									<a href="javascript:;">11RMB</a>
+									<a href="javascript:;">{$minfo['kczc']*$ratio|two_number=###}RMB</a>
 
 								</div>
 							</div>
@@ -197,12 +211,12 @@
 							</a>
 							<div class="commend_text">
 								<p>
-									<a href="javascript:;">余额</a>
-									<span>余额资产</span>
+									<a href="javascript:;">可售余额</a>
+									<span>{$minfo['ksye']|two_number=###}RMB</span>
 								</p>
 								<div class="price clearfix">
 									<span>余额资产</span>
-									<a href="javascript:;">11RMB</a>
+									<a href="javascript:;">{$minfo['ksye']*$ratio|two_number=###}RMB</a>
 
 								</div>
 							</div>

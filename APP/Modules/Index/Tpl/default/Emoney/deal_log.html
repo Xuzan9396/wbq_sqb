@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- saved from url=(0041)http://www.xxx.com/Home/Index/tgbz/ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+    <meta name="robots" content="noindex,nofollow">
+
+    <meta name="robots" content="noarchive">
+
+    <!-- 屏蔽-->
+
+    <title>IOX
+-COIN</title>
+
+    <meta name="keywords" content=" ">
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta content="IE=9; IE=EDGE" http-equiv="X-UA-Compatible">
+
+    <link rel="stylesheet" href="/Public/ybt/css/sm.css">
+
+    <script src="/Public/ybt/js/jquery-1.10.2.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="/Public/ybt/css/sm-extend.css">
+
+
+
+    <link rel="stylesheet" href="/Public/ybt/css/iconfont.css">
+
+    <!--自定义-->
+
+    <link rel="stylesheet" href="/Public/ybt/css/main.css">
+
+    <link rel="stylesheet" href="/Public/ybt/css/order.css">
+
+	<script src="/Public/ybt/js/leftTime.min.js"></script>
+
+    <style type="text/css">
+
+        <!--
+
+        .asdfasf {
+
+            float: right;margin-left: 10px;
+
+        }
+
+        -->
+
+    </style>
+    <script src="/Public/ybt/js/tiaozhuan.js" type="text/javascript"></script>
+
+</head>
+
+<body style="">
+
+<script type="text/javascript">
+
+
+
+    var sid = '554076';
+
+
+
+</script>
+
+
+
+<!-- <div class="page">-->
+
+
+
+<!-- 标题栏 -->
+
+<header class="bar bar-nav">
+
+
+
+    <a style="position: absolute;z-index: 19;width: 94%;text-align: center;display: inline-block;line-height: 50px;font-size: 1.1rem; color:#FFF;">交易平台</a>    <div class="logo">
+
+    <a id="cancle" href="javascript:history.go(-1)"><i class="icon icon-left"></i></a>    </div>
+
+    <a class="icon pull-right open-panel"></a>
+
+</header>
+
+<include file="Public:pub" />
+
+<!--<nav class="foot-bar">-->
+
+    <!--<div class="foot-menu"><a href="{:U('Index/Emoney/shouye')}">-->
+
+        <!--<i class="iconfont icon-shouye"></i><span>首页</span></a></div>-->
+
+    <!--&lt;!&ndash;<div class="foot-menu"><a href="{:U('Index/Shop/orderlist')}">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<i class="iconfont icon-wxbmingxingdianpu"></i><span>我的矿机</span></a></div>&ndash;&gt;-->
+
+    <!--<div class="foot-menu"><a href="{:U('Index/Account/myAccount')}">-->
+
+        <!--<i class="iconfont icon-gouwuche"></i><span>我的团队</span></a></div>-->
+
+    <!--<div class="foot-menu"><a href="{:U('Index/Emoney/index')}">-->
+
+        <!--<i class="iconfont icon-wxbdingwei"></i><span>交易平台</span></a></div>-->
+
+    <!--<div class="foot-menu"><a href="{:U('Index/Index/index')}">-->
+
+        <!--<i class="iconfont icon-geren"></i><span>会员中心</span></a></div>-->
+
+<!--</nav>-->
+
+
+
+<div class="content" id="main_content">
+
+
+
+    <div class="buttons-tab">
+
+        <a href="{:U('Index/Emoney/index')}" class="button">交易大厅</a>
+
+        <a href="{:U('Index/Emoney/mairu')}" class="button">买入IOX
+</a>
+
+        <a href="{:U('Index/Emoney/maichu')}" class=" button">卖出IOX
+</a>
+
+        <a href="{:U('Index/Emoney/deal_log')}" class=" active button">交易记录 </a>
+
+
+    </div>
+
+
+
+
+
+    <!--表格开始-->
+
+    <div class="tabs"><br>
+
+
+
+        <h4 style="color: #333333; font-size:18px;">交易记录列表</h4>
+
+        <hr color="#333333" size="1">
+
+        <div class="card">
+
+
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
+
+                <thead>
+
+                <tr>
+
+                    <th align="center"><div align="center">数量</div></th>
+
+
+                    <th align="center"><div align="center">买家</div></th>
+
+                    <th align="center"><div align="center">卖家</div></th>
+
+                    <th align="center"><div align="center">交易完成时间</div></th>
+
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <foreach name="jyzx_list" item="v">
+
+                    <tr>
+
+                        <td align="center" valign="middle">{$v.cbt}</td>
+
+                        <td align="center" valign="middle">{$v.mr_user}</td>
+
+                        <td align="center" valign="middle">{$v.mc_user}</td>
+                        <td align="center" valign="middle">{$v.jydate}</td>
+
+
+
+
+
+                    </tr>
+
+					<script>		
+
+$.leftTime("{:date('Y/m/d H:i:s',$v['date']+7200)}",function(d{$v.id}){
+
+	if(d{$v.id}.status){
+
+		//d.status 状态
+
+		//d.d 天
+
+		//d.h 时
+
+		//d.m 分
+
+		//d.s 秒
+
+		$("#w_{$v.id}").text(d{$v.id}.h+'小时'+d{$v.id}.m+'分'+d{$v.id}.s+'秒');
+
+	}else{
+
+		$("#w_{$v.id}").text('交易中');
+
+		$.get('{:U('jyzx',array('type'=>'mc','id'=>$v['id']))}',function(res){
+
+		});
+
+	}
+
+});</script>
+
+                </foreach>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div style="text-align: center">{$page}</div>
+
+
+
+
+
+
+
+
+
+    <!--表格结束-->
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
