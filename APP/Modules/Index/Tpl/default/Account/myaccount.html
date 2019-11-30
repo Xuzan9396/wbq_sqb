@@ -94,7 +94,7 @@
 
 
 
-<div class="content" id="main_content">
+<div class="content" id="main_content" style="background: #23264f;">
 
 
 
@@ -119,13 +119,13 @@
 
 
                     <th align="center"><div align="center">直推</div></th>
-                    <th align="center"><div align="center">是否激活</div></th>
+                    <!--<th align="center"><div align="center">是否激活</div></th>-->
                     <th align="center"><div align="center">累计购币</div></th>
 
                     <!-- <th align="center"><div align="center">矿机数量</div></th> -->
 
                     <th align="center"><div align="center">最近登陆</div></th>
-                    <th align="center"><div align="center">领取奖励</div></th>
+                    <!--<th align="center"><div align="center">领取奖励</div></th>-->
 
                 </tr>
 
@@ -146,29 +146,28 @@
 
 
                     <td align="center">{$v.ztnum}</td>
-                    <td align="center">{$v.is_arch_str}</td>
+                    <!--<td align="center">{$v.is_arch_str}</td>-->
                     <td align="center">{$v.ljmrl}</td>
 
                     <!-- <td align="center">{$v.kjnum}</td> -->
 
                     <td align="center"><div align="center">{$v.logintime|friend_date=###}</div></td>
 
-                    <if condition="$v['is_draw'] eq 1">
-                        <td align="center">已领取</td>
+                    <!--<if condition="$v['is_draw'] eq 1">-->
+                        <!--<td align="center">已领取</td>-->
 
-                        <else/>
+                        <!--<else/>-->
 
-                        <if condition="$v['is_arch'] eq 1">
-                        <td>
-                            <a class="button  button-fill button-success js-tixian-submit" href="{:U('Account/draw',['username'=>$v['username']])}">领取</a>
+                        <!--<if condition="$v['is_arch'] eq 1">-->
+                        <!--<td>-->
 
-                        </td>
+                        <!--</td>-->
 
-                            <else/>
-                            <td align="center">未领取</td>
+                            <!--<else/>-->
+                            <!--<td align="center">未领取</td>-->
 
-                        </if>
-                    </if>
+                        <!--</if>-->
+                    <!--</if>-->
 
 
 

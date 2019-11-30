@@ -122,7 +122,7 @@
 
 
 
-<div class="content" id="main_content">
+<div class="content" style="background: #23264f;" id="main_content">
 
 
 
@@ -151,11 +151,14 @@
 
 
 
-        <h4 style="color: #333333; font-size:18px;">交易记录列表</h4>
+        <h4 style="color: white; font-size:18px;">交易记录列表
+            <a href="#" style="color: #00AAFF"  class="button button-fill"> 今日交易量：{$todayCbt}</a>
+            <a href="#" style="color: #00AAFF"  class="button button-fill"> 历史交易量：{$totalCbt}</a>
+        </h4>
         <iframe src="{:U('Index/Account/columnar')}" id="iframepage" name="iframepage" frameborder="0" marginheight="0" marginwidth="0" width="100%" onload="iFrameHeight()" height="340"></iframe>
 
 
-        <hr color="#333333" size="1">
+        <hr color="white" size="1">
 
         <div class="card">
 
