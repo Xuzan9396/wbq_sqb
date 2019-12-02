@@ -167,7 +167,7 @@
 								</p>
 
 								<div class="price clearfix">
-									<span>释放矿池资产</span>
+									<span>释放奇幻果</span>
 									<if condition="$is_freed == 1">
 										<a href="javascript:return false;" class="button" style="color: #fff;background-color: #778899;padding: 0px 10px" >今日已签到 </a>
 
@@ -186,13 +186,13 @@
 							</a>
 							<div class="commend_text">
 								<p>
-									<a href="javascript:;">交易券</a>
+									<a href="javascript:;">积分券</a>
 								</p>
 
 								<div class="price clearfix">
-									<span>交易转券</span>
+									<span>积分券转赠</span>
 
-										<a href="{:U('Account/jiefeng')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px">交易转券 </a>
+										<a href="{:U('Account/jiefeng')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px"> 转赠</a>
 
 
 								</div>
@@ -206,11 +206,11 @@
 							</a>
 							<div class="commend_text">
 								<p>
-									<a href="javascript:;">矿池资产</a>
+									<a href="javascript:;">总奇幻果</a>
 									<span>{$minfo.kczc|two_number=###}</span>
 								</p>
 								<div class="price clearfix">
-									<span>矿池资产</span>
+									<span>总资产</span>
 									<a href="javascript:;">{$minfo['kczc']*$ratio|two_number=###}RMB</a>
 
 								</div>
@@ -224,11 +224,11 @@
 							</a>
 							<div class="commend_text">
 								<p>
-									<a href="javascript:;">可售余额</a>
-									<span>{$minfo['ksye']|two_number=###}RMB</span>
+									<a href="javascript:;">可售奇幻果</a>
+									<span>{$minfo['ksye']|two_number=###}</span>
 								</p>
 								<div class="price clearfix">
-									<span>余额资产</span>
+									<span>可售资产</span>
 									<a href="javascript:;">{$minfo['ksye']*$ratio|two_number=###}RMB</a>
 
 								</div>
