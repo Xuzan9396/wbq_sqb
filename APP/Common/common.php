@@ -1479,7 +1479,7 @@ function sms_log($mobile,$code,$session_id){
 	   $sms_count = M('sms_log')->where("mobile = '{$mobile}' and  add_time > {$s_time} and add_time < {$o_time}")->count();
 
 
-	   if($sms_count >=5){
+	   if($sms_count >=3){
 
 		   return array('status'=>-1,'msg'=>'超出每日发送次数');
 
@@ -1542,22 +1542,40 @@ function sms_log($mobile,$code,$session_id){
 //		}
 
         if($data && $id){
-            $send = phone_send($mobile, $code);
+            $send = mc_note($mobile, $code);
 
 
             $res =json_decode($send, true);
 
+            if($res != null && $res['returnstatus'] == 'Success'){
+                $msg = '成功';
+                $send_type = 3;
+            }elseif($res != null && $res['returnstatus'] == 'Fail'){
+                $res = '失败,' . $data['message'];
+                $send_type = 4;
+            }else{
+                $msg = '失败';
+                $send_type = 4;
+            }
+
+            M('send_node')->add([
+                'phone' => $mobile,
+                'msg' => $msg,
+                'send_type' => $send_type,
+                'create_at' => time(),
+            ]);
 
 
-            if($res != null && isset($res['count']) && $res['count'] == 1){
+
+            if($send_type == 3){
 
                  M('sms_log')->where(array('mobile'=>$mobile,'id' => $id))->save(['status' => 1]);
 
-                return array('status'=>1,'msg'=>'语音短信发送成,请接收!');
+                return array('status'=>1,'msg'=>'短信成功发送!');
 
             }else{
 
-                $msg = isset($res['detail']) ? $res['detail'] : '发送失败，请稍后重试!';
+                $msg = '发送失败，请稍后重试!';
 
                 return array('status'=>-1,'msg'=>$msg);
 
@@ -1571,6 +1589,46 @@ function sms_log($mobile,$code,$session_id){
 
 
 
+}
+
+
+ function mc_note( $phone ,$code)
+{
+
+//        action:send
+//userid:
+//account:8T00439
+//password:5F5464B627C7DB334014965F8973AB8E
+//mobile:13291816017
+//content:【奇幻果】您的订单有新动态，请登录查看！
+//sendTime:
+//extno:
+
+//        action:send
+////userid:
+//account:8T00439
+//password:5F5464B627C7DB334014965F8973AB8E
+//mobile:13291816017
+//content:【奇幻果】您的订单有新动态，请登录查看！
+    $postdata = http_build_query(
+        array(
+            'action' => 'send',
+            'account' => '8T00439',
+            'password' => '5F5464B627C7DB334014965F8973AB8E',
+            'mobile' => $phone,
+            'content' => "【奇幻森林】您本次申请的注册验证码是{$code}，请勿泄露他人！如非本人操作请忽略。",
+        )
+    );
+
+    $opts = array('http' =>
+        array(
+            'method'  => 'POST',
+            'header'  => 'Content-type: application/x-www-form-urlencoded',
+            'content' => $postdata
+        )
+    );
+    $context  = stream_context_create($opts);
+    return $result = file_get_contents('https://dx.ipyy.net/smsJson.aspx', false, $context);
 }
 
 /**

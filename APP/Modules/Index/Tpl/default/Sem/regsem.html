@@ -35,7 +35,9 @@
 
 	<style type="text/css">
 
-
+		body{
+			background: #31356e;
+		}
 
 	</style>
 
@@ -47,7 +49,7 @@
 
 	<!-- 标题栏 -->
 
-	<header class="bar bar-nav"><a style="position: absolute;z-index: 19;width: 94%;text-align: center;display: inline-block;line-height: 50px;font-size: 1.1rem;">新用户注册</a>
+	<header class="bar bar-nav"><a style="position: absolute;z-index: 19;width: 94%;text-align: center;display: inline-block;line-height: 50px;font-size: 1.1rem;color: white">新用户注册</a>
 
 		<div class="logo"><a href=""><i class="icon icon-left"></i></a></div>
 
@@ -55,7 +57,7 @@
 
 	<!-- 这里是页面内容区 -->
 
-	<div class="content" style="margin-bottom:10px;">
+	<div class="content" style="margin-bottom:10px;background:#31356e;">
 
 		<form class="form-signin" action="{:U('Index/Sem/regsempost')}" name="loginForm" id="loginForm" method="post">
 
@@ -63,7 +65,7 @@
 
 
 
-				<ul>
+				<ul style="background:#31356e;color: white;">
 
 					<input type="hidden" name="parent" value="{$username}">
 
@@ -79,7 +81,7 @@
 
 								<div class="item-input">
 
-									<input class="col-20" name="mobile" id="mobile" placeholder="必须本人银行卡绑定的手机号" type="text" value="">
+									<input style="background:#31356e;color: white;" class="col-20" name="mobile" id="mobile" placeholder="必须本人银行卡绑定的手机号" type="text" value="">
 
 								</div>
 
@@ -105,7 +107,7 @@
 
                                     <div style="float:left; width:50%;margin:0px;padding: 0px;">
 
-                                        <input type="text" class="form-control tooltips" data-trigger="hover" data-toggle="tooltip" placeholder="请输入验证码" name="verCode" id="verCode">
+                                        <input style="background:#31356e;color: white;" type="text" class="form-control tooltips" data-trigger="hover" data-toggle="tooltip" placeholder="请输入验证码" name="verCode" id="verCode">
 
                                     </div>
 
@@ -133,7 +135,7 @@
 
 								<div class="item-title label">短信验证码</div>
 
-								<input type="text" placeholder="短信验证码" name="code" required id="code" class="fl">
+								<input style="background:#31356e;color: white;" type="text" placeholder="短信验证码" name="code" required id="code" class="fl">
 
 
 
@@ -160,7 +162,7 @@
 
 								<div class="item-input">
 
-									<input class="col-20" name="truename" id="truename" placeholder="必须真实姓名，注册后不可修改" type="text" value="">
+									<input style="background:#31356e;color: white;" class="col-20" name="truename" id="truename" placeholder="必须真实姓名，注册后不可修改" type="text" value="">
 
 								</div>
 
@@ -182,7 +184,7 @@
 
 								<div class="item-input">
 
-									<input class="col-20" name="password" id="password" type="password" placeholder="请输入登录密码" value="">
+									<input style="background:#31356e;color: white;" class="col-20" name="password" id="password" type="password" placeholder="请输入登录密码" value="">
 
 								</div>
 
@@ -204,7 +206,7 @@
 
 								<div class="item-input">
 
-									<input class="col-20" name="password1" id="password1" type="password" placeholder="请输入确认登录密码" value="">
+									<input style="background:#31356e;color: white;" class="col-20" name="password1" id="password1" type="password" placeholder="请输入确认登录密码" value="">
 
 								</div>
 
@@ -226,7 +228,7 @@
 
 								<div class="item-input">
 
-									<input class="col-20" name="password2" id="password2" type="password" placeholder="请输入二级密码" value="">
+									<input style="background:#31356e;color: white;" class="col-20" name="password2" id="password2" type="password" placeholder="请输入二级密码" value="">
 
 								</div>
 
@@ -248,7 +250,7 @@
 
 								<div class="item-input">
 
-									<input class="col-20" name="password21" id="password21" type="password" placeholder="请输入确认二级密码" value="">
+									<input style="background:#31356e;color: white;" class="col-20" name="password21" id="password21" type="password" placeholder="请输入确认二级密码" value="">
 
 								</div>
 
@@ -288,8 +290,7 @@
 
 			</div>
 
-			<div style="font-size:9pt; margin:10px;line-height: 20px;"><strong>请认真阅读以下规则：</strong><br>
-
+			<div style="font-size:9pt; margin:10px;line-height: 20px;color: white"><strong>请认真阅读以下规则：</strong><br>
 
 
 
@@ -301,7 +302,7 @@
 
 				<input name="xy" type="checkbox" id="xy" value="1">
 
-				<strong style="color:#990000;"> 我已认真阅读以上规则，同意加入</strong>
+				<strong style="color:white;"> 我已认真阅读以上规则，同意加入</strong>
 
 			</div>
 
