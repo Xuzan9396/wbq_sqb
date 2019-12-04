@@ -1232,7 +1232,7 @@ function keshou($member,$money,$desc,$jj,$type){
 
 
 
-// 矿池资产明细
+// 奇幻锅明细
 
 function zichan($member,$money,$desc,$jj,$type,$hdjlID=0){
 
