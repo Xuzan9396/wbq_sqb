@@ -45,8 +45,9 @@
 
     <style type="text/css">
 
-        #ta{width:90%;height:350px;margin:20px;margin-top:90px;font-size: 80%;border:1px solid #ccc;}
-
+        #ta{width:70%;margin:20px;margin-top:2px;font-size: 80%;border:1px solid #ccc;}
+        #ta2{width:70%;height:8rem;margin:2px;margin-top:70px;font-size: 80%;border:1px solid #ccc;}
+        #ta3{width:70%;margin:20px;margin-top:2px;font-size: 80%;border:1px solid #ccc;}
         #middle{width:100%;height:200px;float:left;}
 
     </style>
@@ -114,14 +115,22 @@
 
 
 
+        <div align="center">
+            <textarea id="ta2"  >{$adurl2}</textarea>
 
-        <textarea id="ta"  >{$adurl2}</textarea>
+            <img id="ta3" src="{$erwei}" >
+
+            <textarea id="ta" >{$tuiguangma}</textarea>
+            <span id="tjbd_text"><a class="button button-big button-fill button-success js-tixian-submit" onclick="jsCopy()" >复制推广链接</a></span>
+
+        </div>
 
 
 
 
 
-    <span id="tjbd_text"><a class="button button-big button-fill button-success js-tixian-submit" onclick="jsCopy()" >复制</a></span>
+
+    <!--<span id="tjbd_text"><a class="button button-big button-fill button-success js-tixian-submit" onclick="jsCopy()" >复制</a></span>-->
 
 </div>
 
@@ -143,7 +152,7 @@ function jsCopy(){
 
        }
 
-	
+
 
 	
 
