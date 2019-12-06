@@ -172,7 +172,7 @@
 										<a href="javascript:return false;" class="button" style="color: #fff;background-color: #778899;padding: 0px 10px" >今日已签到 </a>
 
 										<else/>
-										<a href="{:U('Account/mrsf')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px">立即签到 </a>
+										<a href="{:U('Account/mrsf')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px; height: 1rem;line-height: 1rem"">立即签到 </a>
 
 
 									</if>
@@ -187,12 +187,14 @@
 							<div class="commend_text">
 								<p>
 									<a href="javascript:;">积分券</a>
+									<span>{$minfo.trading_coupon_num}张</span>
+
 								</p>
 
 								<div class="price clearfix">
 									<span>积分券转赠</span>
 
-										<a href="{:U('Account/jiefeng')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px"> 转赠</a>
+										<a href="{:U('Account/jiefeng')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px;height: 1rem;line-height: 1rem"> 转赠</a>
 
 
 								</div>
