@@ -28,9 +28,9 @@ function getPdo(){
         case 'pro':
             $mysql_conf = array(
                 'host'    => 'mysql',
-                'db'      => 'sqb_db',
+                'db'      => 'woods',
                 'db_user' => 'root',
-                'db_pwd'  => '27252725',
+                'db_pwd'  => 'gitxuzan27252725',
             );
             break;
     }
@@ -134,41 +134,46 @@ function _doPrepare( $sql, $binds, $pdo )
      if(!$oobs){
          return;
      }
-    $oobs_level = intval($oobs['level']);
+//    $oobs_level = intval($oobs['level']);
 
 
 
 
     // 退费
 
-
-     $shouxuArr = read("select shouxu from ds_member_group where `level` = $oobs_level",[],1);
-     if(!$shouxuArr){
-         return;
-     }
-     $shouxu = $shouxuArr['shouxu'];
+//
+//     $shouxuArr = read("select shouxu from ds_member_group where `level` = $oobs_level",[],1);
+//     if(!$shouxuArr){
+//         return;
+//     }
+//     $shouxu = $shouxuArr['shouxu'];
 
 
      $res_cbt = $result['cbt'];
 
-     $tui = $res_cbt * $shouxu + $res_cbt;
+     $tui = $res_cbt * 0.2 + $res_cbt;
 
     $trading_coupon_num = $result['trading_coupon_num'];
 
 
-//    $oob = write("update ds_member set `ksye` = `ksye` + $tui,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
+    $oob = write("update ds_member set `ksye` = `ksye` + $tui,`kczc` = `kczc` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
 
 
 
-//     $sql = "update ds_jyzx set `zt` = 0,`jydate` = '', `mc_user` = '', `mc_level` = '', `mc_id` = '', `trading_coupon_num` = 0 where id = $id  limit 1";
+     $sql = "update ds_jyzx set `zt` = 0,`jydate` = '', `mc_user` = '', `mc_level` = '', `mc_id` = '', `trading_coupon_num` = 0 where id = $id  limit 1";
 
 
-//     write($sql);
+     write($sql);
+
+     keshou($mc_user,$tui,'超时未付款退回',1);
+
+     // 可售额度
+
+     kczc_tui($mc_user,$res_cbt,'超时未付款退回',1);
 
 
 
-
-     $seal_sql = "update ds_member set `lock` = 1 where username = $mr_user_id and `lock` = 0 limit 1";
+/*     $seal_sql = "update ds_member set `lock` = 1 where username = $mr_user_id and `lock` = 0 limit 1";
 
      write($seal_sql);
 
@@ -218,7 +223,7 @@ function _doPrepare( $sql, $binds, $pdo )
 
 
      $sql = "Call Proc_Member_titles('$mr_user_id','add')";
-     read($sql);
+     read($sql);*/
 
 //    keshou($mc_user,$tui,'交易取消退款',1);
 
@@ -247,12 +252,35 @@ function keshou($member,$money,$desc,$jj,$type = 0){
 
     $addtime = time();
 
-    $sql = "insert into ds_keshoudetail (member,type,adds,balance,addtime,`desc`) values ($member,$type,$money,$balance,$addtime,'$desc')";
+    $sql = "insert into ds_keshoudetail (`member`,`type`,`adds`,`balance`,`addtime`,`desc`) values ($member,$type,$money,$balance,$addtime,'$desc')";
     write($sql);
 
 
 
 }
+
+function kczc_tui($member,$money,$desc,$jj,$type = 0){
+
+
+
+    $ksyeArr = read("select kczc from ds_member where `username` = $member",[],1);
+
+
+    $ksye = $ksyeArr['kczc'];
+
+
+    $balance = $money + $ksye;
+
+    $addtime = time();
+
+    $sql = "insert into ds_zichandetail (`member`,`type`,`adds`,`balance`,`addtime`,`desc`) values ($member,$type,$money,$balance,$addtime,'$desc')";
+    write($sql);
+
+
+
+}
+
+
 
 
 function dongjie($member,$money,$desc,$jj,$type = 0){
@@ -282,9 +310,14 @@ function dongjie($member,$money,$desc,$jj,$type = 0){
 
 
 $time =$GLOBALS['env'] == 'pro' ? date('Y-m-d H:i:s',time()-3600*2) :date('Y-m-d H:i:s',time()-60*5) ;
-$sql = "select id,mr_user from ds_jyzx where `zt` = 1 and mc_user is not NULL and  image is null and jydate < '$time'  limit 50";
+$sql = "select id,mr_user from ds_jyzx where `zt` = 1 and `mc_user` is not NULL and  `image` is null and jydate < '$time'  limit 50";
 
+//echo $sql;exit;
 $deal_list = read($sql);
+//echo '<pre>';
+//    var_dump($deal_list);
+//echo '</pre>';
+//exit;
 
 
 
