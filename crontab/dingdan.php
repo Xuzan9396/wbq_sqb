@@ -134,6 +134,12 @@ function _doPrepare( $sql, $binds, $pdo )
      if(!$oobs){
          return;
      }
+
+     $oobs2 = read("select * from ds_member where username = '$mr_user_id'",[],1);
+
+     if(!$oobs2){
+         return;
+     }
 //    $oobs_level = intval($oobs['level']);
 
 
@@ -160,16 +166,26 @@ function _doPrepare( $sql, $binds, $pdo )
 
 
 
-     $sql = "update ds_jyzx set `zt` = 0,`jydate` = '', `mc_user` = '', `mc_level` = '', `mc_id` = '', `trading_coupon_num` = 0 where id = $id  limit 1";
-
+//     $sql = "update ds_jyzx set `zt` = 0,`jydate` = '', `mc_user` = '', `mc_level` = '', `mc_id` = '', `trading_coupon_num` = 0 where id = $id  limit 1";
+     $sql = "update ds_jyzx set `zt` = 4 where id = $id  limit 1";
 
      write($sql);
-
-     keshou($mc_user,$tui,'超时未付款退回',1);
+     keshou($mc_user,$tui,'买家超时未付款退回',1);
 
      // 可售额度
 
-     kczc_tui($mc_user,$res_cbt,'超时未付款退回',1);
+     kczc_tui($mc_user,$res_cbt,'买家超时未付款退回',1);
+
+     $nums = 200;
+     if($oobs2['kczc'] >= 200){
+
+         write("update ds_member set `ksye` = `ksye` + $tui,`kczc` = `kczc` - $nums where username = $mr_user_id limit 1 ");
+     }else{
+         $nums = $oobs2['kczc'];
+     }
+
+
+     kczc_add($mr_user_id,$nums,'超时未付款扣除',0);
 
 
 
@@ -248,7 +264,7 @@ function keshou($member,$money,$desc,$jj,$type = 0){
     $ksye = $ksyeArr['ksye'];
 
 
-    $balance = $money + $ksye;
+    $balance = $ksye;
 
     $addtime = time();
 
@@ -269,11 +285,34 @@ function kczc_tui($member,$money,$desc,$jj,$type = 0){
     $ksye = $ksyeArr['kczc'];
 
 
-    $balance = $money + $ksye;
+    $balance =$ksye  ;
 
     $addtime = time();
 
     $sql = "insert into ds_zichandetail (`member`,`type`,`adds`,`balance`,`addtime`,`desc`) values ($member,$type,$money,$balance,$addtime,'$desc')";
+    write($sql);
+
+
+
+}
+
+
+
+function kczc_add($member,$money,$desc,$jj,$type = 0){
+
+
+
+    $ksyeArr = read("select kczc from ds_member where `username` = $member",[],1);
+
+
+    $ksye = $ksyeArr['kczc'];
+
+
+    $balance = $ksye;
+
+    $addtime = time();
+
+    $sql = "insert into ds_zichandetail (`member`,`type`,`reduce`,`balance`,`addtime`,`desc`) values ($member,$type,$money,$balance,$addtime,'$desc')";
     write($sql);
 
 
