@@ -292,8 +292,10 @@
                         <td align="center" valign="middle">
 
                             <if condition="$v.zt eq 0"> <span style="color:red" id="w_{$v.id}">等待中</span></if> <if condition="$v.zt eq 1">交易中</if>
+                            <if condition="$v.zt eq 4">交易超时</if>
 
-                            <if condition="$v.zt eq 2">交易完成</if></td>
+                            <if condition="$v.zt eq 2">交易完成</if>
+                        </td>
 
                         <td align="center" valign="middle"><span  class="money" >{$v.date|date='Y-m-d H:i:s',###}</span></td>
 
