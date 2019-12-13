@@ -411,35 +411,6 @@ $.leftTime("{:date('Y/m/d H:i:s',$v['date']+7200)}",function(d{$v.id}){
 
                                     <span id="ww_{$l.id}">交易状态: 等待确认</span>
 
-															<script>
-
-$.leftTime("{:date('Y/m/d H:i:s',$l['date']+7200)}",function(dd{$l.id}){
-
-	if(dd{$l.id}.status){
-
-		//d.status 状态
-
-		//d.d 天
-
-		//d.h 时
-
-		//d.m 分
-
-		//d.s 秒
-
-		$("#ww_{$l.id}").text(dd{$l.id}.h+'小时'+dd{$l.id}.m+'分'+dd{$l.id}.s+'秒');
-
-	}else{
-
-		$("#ww_{$l.id}").text('交易状态:交易超时');
-
-		$.get('{:U('jyzx',array('type'=>'mr','id'=>$l['id']))}',function(res){
-
-		});
-
-	}
-
-});</script>
 
                
 
