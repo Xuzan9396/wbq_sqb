@@ -1,0 +1,182 @@
+html,body{
+    height: 100%;
+}
+.content {
+    width: 100vw;
+    height: 100%;
+    background-size:100% auto;
+    position: relative;
+}
+
+
+.app_icon {
+    width: 4.157333rem;
+    padding-top: 4.085333333333333rem;
+    margin: 0 auto;
+    font-size: 0.45rem;
+    color: #fff;
+    text-align: center;
+}
+.app_icon img{
+    width: 4.157333rem;
+    height: 4.157333rem;
+}
+.box{
+    width: 16rem;
+}
+.color_bb{
+    color: #989898;
+    line-height: 1rem;
+
+}
+.foot{
+    margin-top: 16rem;
+    color: #C3C3C3 100%;
+    font-size: 0.5rem;
+    text-align: center;
+    line-height: 2;
+}
+.foot a{
+    color: #0066CC;
+    display: block;
+}
+.top{
+    width: 16rem;
+    height:7.765333333333333rem;
+    background: url("/assets/img/lv_icon_colour@2x.png");
+    background-size: cover;
+    padding-top: 0.256rem;
+}
+.user_pic{
+    width: 5.546666666666667rem;
+    height:4.693333333333333rem ;
+    background: url("/assets/img/lv_icon_adorn@2x.png");
+    background-size:cover;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 0.6826666666666667rem;
+
+}
+.user_tx{
+    width: 3.413333333333333rem;
+    height:3.413333333333333rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: block;
+}
+.user_level{
+    width: 2.709333333333333rem;
+    height: 1.045333333333333rem;
+    background: url("/assets/img/lv_icon_bg@2x.png");
+    background-size: cover;
+    position: absolute;
+    bottom: 0.4rem;
+    font-size: 0.5rem;
+    color: #fff;
+    text-align: center;
+    left:1.354666666666667rem;
+    line-height: 1rem;
+}
+.level_xx{
+    width: 13.056rem;
+    margin: 0 auto;
+
+}
+.level_xx p{
+    font-size: 0.512rem;
+    color: #989898;
+    text-align: center;
+    margin:0.5973333333333333rem 0
+}
+.level_bar{
+    height: 0.0853333333333333rem;
+    background: #C3C3C3;
+    border-radius: 30%;
+}
+.level_percent{
+    background: #FF7000;
+    height: 0.0853333333333333rem;
+    display: block;
+    border-radius: 30%;
+}
+.details{
+    text-align: center;
+}
+.details h3{
+    color: #FF7000;
+    font-size: 0.5973333333333333rem;
+
+}
+.details p{
+    color: #989898;
+    font-size: 0.512rem;
+    line-height: 2;
+}
+.level_tb{
+    font-size: 0.512rem;
+    margin: 0.5rem;
+    
+}
+.tb_head{
+    display: flex;
+}
+.tb_td{
+    display: flex;
+    flex: 1;
+    border:#ccc 1px solid ;
+    height: 1.066666666666667rem;
+    text-align: center;
+    line-height:1.066666666666667rem ;
+}
+.tb_td p{
+    flex: 1;
+}
+.tb_copy{
+    display: flex;
+    flex-wrap: wrap
+}
+.tb_copy_td{
+    display: flex;
+    width:50%; ;
+    border:#ccc 1px solid ;
+    height: 1.066666666666667rem;
+    text-align: center;
+    line-height:1.066666666666667rem ;
+}
+.tb_copy_td p{
+    flex: 1;
+}
+.error{
+    width: 11.41333333333333rem;
+    height:9.386666666666667rem;
+    background: url("/assets/img/pic_inset@2x.png");
+    background-size: cover;
+    margin: 5.112rem auto 0;
+
+}
+.error p{
+    color: #101010;
+    font-size: 0.512rem;
+    padding-top:6.5rem;
+    text-align: center;
+}
+.xybox{
+    padding: 0.5rem;
+    font-size: 0.6rem;
+    line-height: 1.5;
+}
+.xybox h2{
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem 0;
+}
+.xybox h3{
+    font-size: 0.7rem;
+    line-height: 2;
+}
+.xybox p{
+    text-indent: 1.2rem;
+    line-height: 1.6;
+    padding-bottom: 0.5rem;
+}

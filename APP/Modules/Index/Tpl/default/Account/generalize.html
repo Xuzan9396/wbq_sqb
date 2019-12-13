@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>推广页面</title>
+    <link href="/Public/js_css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/js_css/css.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script> -->
+</head>
+
+<body style="background: #fff">
+
+<div class="content" style=" background-color: transparent;background:url('/Public/js_css/bg.jpeg') 0 0 no-repeat;background-size: 100% auto;z-index: 300 ">
+
+
+
+
+
+
+    <div style=" width: 35%;height: 30%; z-index: 400; position: fixed; top: 49%;left: 21%">
+        <img  src="{$erwei}" alt="">
+        <input  type="text" id="input" value="{$url}" style="z-index: 227">
+
+    </div>
+
+    <button data-clipboard-target="#input" id="copy" style="z-index:288;width: 23rem;font-size: 3rem;position: fixed; top: 71%;left: 64%" >
+        <!-- <img src="/assets/img/logo@2x.png"> -->
+        <!--<p>版本号: {{info['version']}}</p>-->
+    </button>
+
+
+
+
+    <!-- <button id="copy" data-clipboard-target="#input">复制input框中的内容</button> -->
+
+</div>
+</body>
+<script type="text/javascript">
+    var clipboard = new ClipboardJS('#copy')
+    // 显示用户反馈/捕获复制/剪切操作后选择的内容
+    clipboard.on('success', function (e) {
+        // console.info('Action:', e.action)//触发的动作/如：copy,cut等
+        // console.info('Text:', e.text);//触发的文本
+        // console.info('Trigger:', e.trigger);//触发的DOm元素
+        alert('复制成功');
+        e.clearSelection();//清除选中样式（蓝色）
+    })
+    clipboard.on('error', function (e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    });
+
+</script>
+<!-- <script src="/assets/js/hotcss.js"></script> -->
+
+</html>
