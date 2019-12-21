@@ -178,9 +178,9 @@ function qxjy( $id, $mr_user_id )
         $nums = 200;
         if ($oobs2['kczc'] >= 200) {
 
-            write("update ds_member set `ksye` = `ksye` + $tui,`kczc` = `kczc` - $nums where username = $mr_user_id limit 1 ");
+            write("update ds_member set `kczc` = `kczc` - $nums where username = $mr_user_id limit 1 ");
         } else {
-            write("update ds_member set `ksye` = `ksye` + $tui,`kczc` = 0 where username = $mr_user_id limit 1 ");
+            write("update ds_member set `kczc` = 0 where username = $mr_user_id limit 1 ");
             $nums = $oobs2['kczc'];
 
         }
