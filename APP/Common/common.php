@@ -1374,6 +1374,50 @@ function dongjie($member,$money,$desc,$jj,$type){
 
 }
 
+
+
+function ed_bank_detail($member,$money,$desc,$jj,$type){
+
+
+
+    $dongjiedetail = M('ed_bankdetail');
+
+    $qjinbi = M('member')->where(array('username'=>$member))->getField('ksed');
+
+    $data = array();
+
+    $data['member']  = $member;
+
+    $data['type']  = $type;
+
+    if($jj==1){
+
+        $qjinbi = $qjinbi - $money;
+
+        $data['adds']    = $money;
+
+        $data['balance'] = $money + $qjinbi;
+
+    }else{
+
+        $qjinbi = $qjinbi + $money;
+
+        $data['reduce']  = $money;
+
+        $data['balance'] = $qjinbi - $money;
+
+    }
+
+
+
+    $data['addtime'] = time();
+
+    $data['desc']    = $desc;
+
+    $dongjiedetail->add($data);
+
+}
+
     /**
 
      * 短信验证码验证

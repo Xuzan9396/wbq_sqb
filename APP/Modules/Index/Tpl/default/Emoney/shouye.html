@@ -201,7 +201,6 @@
 							</div>
 						</li>
 
-
 						<li>
 							<a href="javascript:;">
 								<img src="/Public/ybt/image/ckzc.png" alt="">
@@ -219,7 +218,6 @@
 							</div>
 						</li>
 
-
 						<li>
 							<a href="javascript:;">
 								<img src="/Public/ybt/image/ksye.png" alt="">
@@ -232,6 +230,65 @@
 								<div class="price clearfix">
 									<span>可售资产</span>
 									<a href="javascript:;">{$minfo['ksye']*$ratio|two_number=###}RMB</a>
+
+								</div>
+							</div>
+						</li>
+                      <!--以下三个新内容是我2020.1.1号新增的，后台具体的代码需要你补充一下-->
+                      <!--奖励奇幻果是下级买币的那个提成，原来提成给的是矿池，现在改成奖励奇幻果-->
+						<li>
+							<a href="javascript:;">
+								<img src="/Public/ybt/image/ksye.png" alt="">
+							</a>
+							<div class="commend_text">
+								<p>
+									<a href="javascript:;">奖励奇幻果</a>
+									<span>{$minfo['jlye']|two_number=###}</span>
+								</p>
+								<div class="price clearfix">
+									<span>奖励资产</span>
+									<a href="javascript:;">{$minfo['jlye']*$ratio|two_number=###}RMB</a>
+
+								</div>
+							</div>
+						</li>
+                      <!--释放券是用来释放奖励奇幻果的，释放券通过后台添加。一张释放券能释放50%的奖励奇幻果到可售奇幻果中
+					  比如有100个奖励奇幻果，使用一张释放券后，jlye=0.5*jlye;ksye=ksye+0.5jlye
+					  -->
+						<li>
+							<a href="javascript:;">
+								<img src="/Public/new_kc/kc_user/huiyuan-menu5.png" alt="">
+							</a>
+							<div class="commend_text">
+								<p>
+									<a href="javascript:;">释放券</a>
+									<span>{$minfo.trading_coupon_num}张</span>
+
+								</p>
+
+								<div class="price clearfix">
+									<span>邀请奖励释放券</span>
+									<a href="{:U('Account/jiefeng')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px;height: 1rem;line-height: 1rem"> 使用</a>  //点击使用，就消耗一张释放券，把奖励奇幻果释放到可售奇幻果中
+
+								</div>
+							</div>
+						</li>
+                      <!--上限奇幻果指的是每日最多能卖出的上限。计算公式：sxye=有效直推人数*kczc*0.02 。例如：
+					  直推了一个有效会员（激活的会员），拥有5000矿池，那么sxye=1*5000*0.02 = 100
+					  也就是每天最多能卖100个，卖出的时候要加个判断，每日卖出总量  <= sxye
+					  -->
+						<li>
+							<a href="javascript:;">
+								<img src="/Public/ybt/image/ksye.png" alt="">
+							</a>
+							<div class="commend_text">
+								<p>
+									<a href="javascript:;">上限奇幻果</a>
+									<span>{$minfo['sxye']|two_number=###}</span>
+								</p>
+								<div class="price clearfix">
+									<span>每日可售上限</span>
+									<a href="javascript:;">{$minfo['sxye']*$ratio|two_number=###}RMB</a>
 
 								</div>
 							</div>
