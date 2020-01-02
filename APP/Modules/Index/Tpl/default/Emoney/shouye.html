@@ -243,11 +243,11 @@
 							<div class="commend_text">
 								<p>
 									<a href="javascript:;">奖励奇幻果</a>
-									<span>{$minfo['jlye']|two_number=###}</span>
+									<span>{$minfo['ed_bank']|two_number=###}</span>
 								</p>
 								<div class="price clearfix">
 									<span>奖励资产</span>
-									<a href="javascript:;">{$minfo['jlye']*$ratio|two_number=###}RMB</a>
+									<a href="javascript:;">{$minfo['ed_bank']*$ratio|two_number=###}RMB</a>
 
 								</div>
 							</div>
@@ -262,13 +262,13 @@
 							<div class="commend_text">
 								<p>
 									<a href="javascript:;">释放券</a>
-									<span>{$minfo.trading_coupon_num}张</span>
+									<span>{$minfo.release_notes_num}张</span>
 
 								</p>
 
 								<div class="price clearfix">
 									<span>邀请奖励释放券</span>
-									<a href="{:U('Account/jiefeng')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px;height: 1rem;line-height: 1rem"> 使用</a>  //点击使用，就消耗一张释放券，把奖励奇幻果释放到可售奇幻果中
+									<a href="{:U('Account/release_notes_post')}" class="button" style="color: #fff;background-color: #0a8ddf;padding: 0px 10px;height: 1rem;line-height: 1rem"> 使用</a>
 
 								</div>
 							</div>

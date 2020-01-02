@@ -1382,7 +1382,7 @@ function ed_bank_detail($member,$money,$desc,$jj,$type){
 
     $dongjiedetail = M('ed_bankdetail');
 
-    $qjinbi = M('member')->where(array('username'=>$member))->getField('ksed');
+    $qjinbi = M('member')->where(array('username'=>$member))->getField('ed_bank');
 
     $data = array();
 
