@@ -155,12 +155,12 @@ function qxjy( $id, $mr_user_id )
 
     $res_cbt = $result['cbt'];
 
-    $tui = $res_cbt * 0.2 + $res_cbt;
+    $tui = $res_cbt * 0.3 + $res_cbt;
 
     $trading_coupon_num = $result['trading_coupon_num'];
 
 
-    $oob = write("update ds_member set `ksye` = `ksye` + $tui,`kczc` = `kczc` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
+    $oob = write("update ds_member set `ksye` = `ksye` + $tui,`kczc` = `kczc` + $res_cbt,`ksed` = `ksed` + $res_cbt,trading_coupon_num = trading_coupon_num + $trading_coupon_num where username = $mc_user limit 1 ");
 
 
 //     $sql = "update ds_jyzx set `zt` = 0,`jydate` = '', `mc_user` = '', `mc_level` = '', `mc_id` = '', `trading_coupon_num` = 0 where id = $id  limit 1";
@@ -168,6 +168,7 @@ function qxjy( $id, $mr_user_id )
 
     write($sql);
     keshou($mc_user, $tui, '买家超时未付款退回', 1);
+    dongjie($mc_user,$res_cbt,'买家超时未付款退回',1);
 
     // 可售额度
 
@@ -175,18 +176,28 @@ function qxjy( $id, $mr_user_id )
 
     if ($oobs2) {
 
-        $nums = 200;
-        if ($oobs2['kczc'] >= 200) {
+//        $nums = 200;
+//        if ($oobs2['kczc'] >= 200) {
+//
+//            write("update ds_member set `kczc` = `kczc` - $nums where username = $mr_user_id limit 1 ");
+//        } else {
+//            write("update ds_member set `kczc` = 0 where username = $mr_user_id limit 1 ");
+//            $nums = $oobs2['kczc'];
+//
+//        }
 
-            write("update ds_member set `kczc` = `kczc` - $nums where username = $mr_user_id limit 1 ");
+
+//        $nums = 200;
+        $res_cbt_num = floor($oobs2['trading_coupon_num']/100);
+        if ($oobs2['trading_coupon_num'] >= $res_cbt_num) {
+
+            write("update ds_member set `trading_coupon_num` = `trading_coupon_num` - $res_cbt_num where username = $mr_user_id limit 1 ");
         } else {
-            write("update ds_member set `kczc` = 0 where username = $mr_user_id limit 1 ");
-            $nums = $oobs2['kczc'];
+            write("update ds_member set `trading_coupon_num` = 0 where username = $mr_user_id limit 1 ");
 
         }
 
 
-        kczc_add($mr_user_id, $nums, '超时未付款扣除', 0);
     }
 
 
