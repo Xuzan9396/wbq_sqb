@@ -188,7 +188,7 @@ function qxjy( $id, $mr_user_id )
 
 
 //        $nums = 200;
-        $res_cbt_num = floor($oobs2['trading_coupon_num']/100);
+        $res_cbt_num = floor($res_cbt/100);
         if ($oobs2['trading_coupon_num'] >= $res_cbt_num) {
 
             write("update ds_member set `trading_coupon_num` = `trading_coupon_num` - $res_cbt_num where username = $mr_user_id limit 1 ");
