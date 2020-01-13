@@ -31,9 +31,11 @@
 
 </head>
 
- <h2 class="title" align="center">惠民商城</h2>
-    <div class="current">
+<h2 class="title" align="center">惠民商城 </h2>
 
+<span align="center">给忠实粉丝最大的优惠和体现奇幻果的价值，目前商城奇幻果价值0.15rmb，后期根据市场价格同步提高商城奇幻果价值。</span>
+
+    <div class="current">
 
         <?php foreach ($list as $k => $val ) : ?>
 
@@ -46,7 +48,7 @@
           <!--<div class="price"></div>-->
           <div class="price"><?php echo $val['price_str']; ?>  |  <?php echo $val['title']; ?></div>
           <a href="#" class="introduce"><?php echo $val['detail_str']; ?></a>
-          <div class="salemount"><span>销售量：999</span></div>
+          <div class="salemount"><span>库存：999</span></div>
           <div class="rate">商品总价：{$val['ksye_num']}可售奇幻果 | {$val['kczc_num']}总奇幻果 | {$val['ksed_num']}额度奇幻果</div>
           <div class="buy"><a href="{:U('Index/Shop/shop_exchange', array('gift_id'=>$val['gift_id']))}">立即抢购</a></div>
 
