@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- saved from url=(0041)http://www.xxx.com/Home/Index/index -->
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+	<meta name="robots" content="noindex,nofollow">
+
+	<meta name="robots" content="noarchive">
+
+	<!-- 屏蔽-->
+
+	<title>奇幻果-COIN</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes" />
+
+	<meta name="keywords" content=" ">
+
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<meta content="IE=9; IE=EDGE" http-equiv="X-UA-Compatible">
+	<link rel="stylesheet" href="/Public/ybt/css/shop_main.css">
+
+</head>
+
+ <h2 class="title" align="center">惠民商城</h2>
+    <div class="current">
+
+
+        <?php foreach ($list as $k => $val ) : ?>
+
+        <div class="sale" >
+
+            <div align="center">
+                <a href="#"><img src="/Public/ybt/image/<?php echo $val['img']; ?>"></a>
+            </div>
+
+          <!--<div class="price"></div>-->
+          <div class="price"><?php echo $val['price_str']; ?>  |  <?php echo $val['title']; ?></div>
+          <a href="#" class="introduce"><?php echo $val['detail_str']; ?></a>
+          <div class="salemount"><span>销售量：999</span></div>
+          <div class="rate">商品总价：{$val['ksye_num']}可售奇幻果 | {$val['kczc_num']}总奇幻果 | {$val['ksed_num']}额度奇幻果</div>
+          <div class="buy"><a href="{:U('Index/Shop/shop_exchange', array('gift_id'=>$val['gift_id']))}">立即抢购</a></div>
+
+        </div>
+        <?php endforeach; ?>
+
+
+    </div>
+</body></html>

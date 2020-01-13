@@ -1,6 +1,60 @@
 <?php
 
 
+function getShopDetail()
+{
+    $list = [
+        1 => [
+            'img' => 'shop_1.jpeg',
+            'title' => 'iPhone 11 Pro',
+            'price_str' => '￥9299≈60444奇幻果',
+            'detail_str' => '【全新国行正品带票】iPhone 11 Pro 苹果手机新款256G全网通',
+            'gift_id' => 1,
+            'kczc_num' => 60444,
+            'ksye_num' => 60444,
+            'ksed_num' => 60444,
+            'postage' => '包邮'
+        ],
+
+        2 => [
+            'img' => 'shop_2.jpeg',
+            'title' => 'Apple Watch Series5',
+            'price_str' => '￥3299≈21444奇幻果',
+            'detail_str' => 'Apple Watch Series5苹果智能手表iwatch GPS+蜂窝数据版',
+            'gift_id' => 2,
+            'kczc_num' => 21444,
+            'ksye_num' => 21444,
+            'ksed_num' => 21444,
+            'postage' => '包邮'
+        ],
+
+        3 => [
+            'img' => 'shop_3.jpeg',
+            'title' => '神仙水',
+            'price_str' => '￥999≈6494奇幻果',
+            'detail_str' => 'SK-II日本本土版 SK2神仙水滋润亮肤保湿补水护肤精华露 230ml',
+            'gift_id' => 3,
+            'kczc_num' => 6494,
+            'ksye_num' => 6494,
+            'ksed_num' => 6494,
+            'postage' => '10元'
+        ],
+
+        4 => [
+            'img' => 'shop_4.jpeg',
+            'title' => '小米智能手环',
+            'price_str' => '￥176≈1144奇幻果',
+            'detail_str' => '小米智能手环男测血压心率睡眠防水运动手表女彩屏蓝牙记计步器多功能',
+            'gift_id' => 4,
+            'kczc_num' => 1144,
+            'ksye_num' => 1144,
+            'ksed_num' => 1144,
+            'postage' => '10元'
+        ],
+    ];
+    
+    return $list;
+}
 
     /**
 
