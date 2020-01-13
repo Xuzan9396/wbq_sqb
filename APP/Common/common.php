@@ -37,7 +37,7 @@ function getShopDetail()
             'kczc_num' => 6494,
             'ksye_num' => 6494,
             'ksed_num' => 6494,
-            'postage' => '10元'
+            'postage' => '10¥'
         ],
 
         4 => [
@@ -49,7 +49,7 @@ function getShopDetail()
             'kczc_num' => 1144,
             'ksye_num' => 1144,
             'ksed_num' => 1144,
-            'postage' => '10元'
+            'postage' => '10¥'
         ],
     ];
     
