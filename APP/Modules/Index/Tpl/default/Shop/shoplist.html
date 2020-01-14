@@ -49,7 +49,7 @@
           <div class="price"><?php echo $val['price_str']; ?>  |  <?php echo $val['title']; ?></div>
           <a href="#" class="introduce"><?php echo $val['detail_str']; ?></a>
           <div class="salemount"><span>库存：999</span></div>
-          <div class="rate">商品总价：+ {$val['ksye_num']}可售奇幻果 + {$val['kczc_num']}总奇幻果 +{$val['ksed_num']}额度奇幻果</div>
+          <div class="rate">商品总价:{$val['ksye_num']}可售奇幻果+{$val['kczc_num']}总奇幻果+{$val['ksed_num']}额度奇幻果</div>
           <div class="buy"><a href="{:U('Index/Shop/shop_exchange', array('gift_id'=>$val['gift_id']))}">立即抢购</a></div>
 
         </div>
