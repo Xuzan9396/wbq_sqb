@@ -40,9 +40,9 @@ class Base
             case 'pro':
                 $mysql_conf = array(
                     'host'    => 'mysql',
-                    'db'      => 'sqb_db',
+                    'db'      => 'woods',
                     'db_user' => 'root',
-                    'db_pwd'  => '27252725',
+                    'db_pwd'  => 'gitxuzan27252725',
                 );
                 break;
         }

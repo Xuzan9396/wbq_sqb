@@ -37,7 +37,10 @@ class UpdatePrice extends Base{
         $sql = "select * from ds_date order by id desc limit 1";
         $res = $this->read($sql,[],1);
 
-        if($res){
+        $todaySql = "select * from ds_date order by id desc limit 1";
+        $todayRes = $this->read($todaySql,[],1);
+
+        if($res && $todayRes){
             $date_time = strtotime(date('Y-m-d',$res['date']));
             $time = strtotime(date('Y-m-d'));
             if($date_time >= $time){
@@ -46,40 +49,22 @@ class UpdatePrice extends Base{
 
             }
 
-            $path = "../APP/Conf/system.php";
-            $config = include $path;
+                $everyday_rose = 0.001;
+                $everyday_rose_price = $todayRes['price']+0.001;
 
 
-
-            if(isset($config['everyday_rose']) ){
-
-                $everyday_rose = sprintf("%.4f",$config['everyday_rose']) +0.001;
-
-                $config['everyday_rose'] = $everyday_rose;
-
-
-                $dataArr = "<?php\r\nreturn " . var_export($config, true) . ";\r\n?>";
-
-
-                file_put_contents($path, $dataArr);
-
-
-
-                $sql = "insert into ds_date (price,date) values ($everyday_rose, $time)";
+                $sql = "insert into ds_date (price,date) values ($everyday_rose_price, $time)";
                 $this->write($sql);
+
+                $times = time();
+                $todaySql = "insert into ds_date_today(price,`date`) values ($everyday_rose_price, $times)";
+                $this->write($todaySql);
+
                 $sql_update = "update ds_jyzx set danjia = danjia+$everyday_rose , qian = danjia * cbt  where zt = 0";
                 $this->write($sql_update);
-//                $config['everyday_last_time']      = time();
 
                 echo $dates.  'success' . PHP_EOL;exit;
 
-                /*                $data = "<?php\r\nreturn " . var_export($config, true) . ";\r\n?>";*/
-
-//                file_put_contents($path, $data);
-            }else{
-                echo $dates . ':时间不匹配' . PHP_EOL;
-                exit;
-            }
         }
 
     }
