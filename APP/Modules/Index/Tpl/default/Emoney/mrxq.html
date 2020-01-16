@@ -24,6 +24,7 @@
 
     <script src="/Public/ybt/js/jquery-1.10.2.min.js"></script>
 
+    <script src="/Public/ybt/js/dist/clipboard.js"></script>
 
 
     <link rel="stylesheet" href="/Public/ybt/css/sm-extend.css">
@@ -119,6 +120,10 @@
 
     <div class="exchange">
 
+
+
+
+
         <ul class="mui-table-view" style="color: white; background-color: #31356e;">
 
             <li class="mui-table-view-cell">
@@ -133,8 +138,22 @@
 
                     <div>
 
-                    <font style="font-size:20px;color:red">{$mclist.username}</font>（交易前请先致电确认）
+                    <font style="font-size:20px;color:red">{$mclist.username}</font>（请先致电确认）
 
+                        <button style="color: white; background-color: #31356e;" class="btn" data-clipboard-text="{$mclist.username}">
+                            复制号码
+                        </button>
+                        <script>
+                            $(document).ready(function(){
+                                var clipboard = new ClipboardJS('.btn');
+                                clipboard.on('success', function(e) {
+                                    alert('复制成功');
+                                });
+                                clipboard.on('error', function(e) {
+                                    alert('复制失败');
+                                });
+                            });
+                        </script>
                     </div>
 
                 </div></li>
@@ -160,6 +179,30 @@
         </ul>
 
     </div>
+
+    <script type="text/javascript">
+
+        function jsCopy(){
+
+            var e=document.getElementById("btn-copy-text");//对象是copy-num1
+
+            e.select(); //选择对象
+
+            document.execCommand("Copy"); //执行浏览器复制命令
+
+
+
+            alert('复制成功');
+
+
+
+        }
+
+
+
+
+
+    </script>
 
     <div class="exchange" style="margin-top: 16px;">
 
@@ -248,6 +291,7 @@
         </ul>
 
     </div>
+
 
 
 
