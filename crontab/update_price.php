@@ -50,13 +50,12 @@ class UpdatePrice extends Base{
             $config = include $path;
 
 
-            $everyday_rose = isset($config['everyday_rose']) ? floatval($config['everyday_rose']) : 0.01;
 
+            if(isset($config['everyday_rose']) ){
 
-            if($date_time+86400 ==  $time ){
+                $everyday_rose = sprintf("%.4f",$config['everyday_rose']) +0.001;
 
-                $config['draw_low_price'] = $config['draw_low_price'] + $everyday_rose;
-                $config['draw_high_price'] = $config['draw_high_price'] + $everyday_rose;
+                $config['everyday_rose'] = $everyday_rose;
 
 
                 $dataArr = "<?php\r\nreturn " . var_export($config, true) . ";\r\n?>";
@@ -66,8 +65,7 @@ class UpdatePrice extends Base{
 
 
 
-                $cur_price = $config['draw_high_price'];
-                $sql = "insert into ds_date (price,date) values ($cur_price, $time)";
+                $sql = "insert into ds_date (price,date) values ($everyday_rose, $time)";
                 $this->write($sql);
                 $sql_update = "update ds_jyzx set danjia = danjia+$everyday_rose , qian = danjia * cbt  where zt = 0";
                 $this->write($sql_update);
