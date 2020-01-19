@@ -51,6 +51,83 @@ function getShopDetail()
             'ksed_num' => 1525,
             'postage' => '10¥'
         ],
+        5 => [
+            'img' => 'shop_5.png',
+            'title' => '手镯',
+            'price_str' => '¥300≈2600奇幻果',
+            'detail_str' => '水晶镶金手镯1克黄金',
+            'gift_id' => 5,
+            'kczc_num' => 2600,
+            'ksye_num' => 2600,
+            'ksed_num' => 2600,
+            'postage' => '10¥'
+        ],
+        6 => [
+            'img' => 'shop_6.png',
+            'title' => '纪念币',
+            'price_str' => '¥100≈867奇幻果',
+            'detail_str' => '2020行大运1个亿金箔纪念币',
+            'gift_id' =>6,
+            'kczc_num' => 867,
+            'ksye_num' => 867,
+            'ksed_num' => 867,
+            'postage' => '10¥'
+        ],
+        7 => [
+            'img' => 'shop_7.png',
+            'title' => '吊坠',
+            'price_str' => '¥600≈5200奇幻果',
+            'detail_str' => '足金镶和田玉貔貅吊坠',
+            'gift_id' => 7,
+            'kczc_num' => 5200,
+            'ksye_num' => 5200,
+            'ksed_num' => 5200,
+            'postage' => '10¥'
+        ],
+        8 => [
+            'img' => 'shop_8.png',
+            'title' => '银元宝红包',
+            'price_str' => '¥100≈867奇幻果',
+            'detail_str' => '纯银银元宝红包，高逼格一套5个',
+            'gift_id' => 8,
+            'kczc_num' => 867,
+            'ksye_num' => 867,
+            'ksed_num' => 867,
+            'postage' => '10¥'
+        ],
+        9 => [
+            'img' => 'shop_9.png',
+            'title' => '金元宝红包',
+            'price_str' => '¥300≈2600奇幻果',
+            'detail_str' => '纯金金元宝红包，高逼格一套5个',
+            'gift_id' => 9,
+            'kczc_num' => 2600,
+            'ksye_num' => 2600,
+            'ksed_num' =>2600,
+            'postage' => '10¥'
+        ],
+        10 => [
+            'img' => 'shop_10.png',
+            'title' => '鼠年金钞',
+            'price_str' => '¥200≈1733奇幻果',
+            'detail_str' => '鼠年金钞-福鼠迎财',
+            'gift_id' => 10,
+            'kczc_num' => 1733,
+            'ksye_num' => 1733,
+            'ksed_num' => 1733,
+            'postage' => '10¥'
+        ],
+        11 => [
+            'img' => 'shop_11.png',
+            'title' => '挂坠',
+            'price_str' => '¥300≈2600奇幻果',
+            'detail_str' => '和田金镶玉凯蒂猫挂坠-福鼠迎财',
+            'gift_id' => 11,
+            'kczc_num' => 2600,
+            'ksye_num' => 2600,
+            'ksed_num' => 2600,
+            'postage' => '10¥'
+        ],
     ];
     
     return $list;
